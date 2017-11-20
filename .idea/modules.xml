@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SwitcherApp.iml" filepath="$PROJECT_DIR$/SwitcherApp.iml" />
+      <module fileurl="file://D:\SRI\Classes\EC327\AndroidApp\SwitcherApp\SwitcherApp.iml" filepath="D:\SRI\Classes\EC327\AndroidApp\SwitcherApp\SwitcherApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\SRI\Classes\EC327\AndroidApp\SwitcherApp\app\app.iml" filepath="D:\SRI\Classes\EC327\AndroidApp\SwitcherApp\app\app.iml" />
     </modules>
   </component>
 </project>
