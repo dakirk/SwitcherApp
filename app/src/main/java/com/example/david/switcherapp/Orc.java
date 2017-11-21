@@ -2,34 +2,34 @@ package com.example.david.switcherapp;
 
 public class Orc extends GameObject {
 
-	protected double speed;
+	protected double speed; // <-- might not use this
 	protected CartPoint destination;
 	protected CartPoint delta;
 	protected Model orcVision;
-	protected static int numOrcs = 1;
+	protected static int numOrcs = 0;
 
 	//default constructor
+	/*
 	public Orc() {
 		super(new CartPoint(), numOrcs, 'o');
-		speed = 1; // <-- might not use this
+		speed = 1; 
 		orcVision = new Model();
 		numOrcs++;
 		System.out.println("Orc default constructed");
 	}
+	*/
 
 	public Orc(Model inModel) {
-		super(new CartPoint(), numOrcs, 'o');
+		super(new CartPoint(), ++numOrcs, 'o');
 		speed = 1;
 		orcVision = inModel;
-		numOrcs++;
 		System.out.println("Orc constructed");
 	}
 
 	public Orc(CartPoint inLoc, Model inModel) {
-		super(inLoc, numOrcs, 'o');
+		super(inLoc, ++numOrcs, 'o');
 		speed = 1;
 		orcVision = inModel;
-		numOrcs++;
 		System.out.println("Orc constructed");
 
 	}
@@ -50,14 +50,14 @@ public class Orc extends GameObject {
 
 		switch (state) {
 			case 's': 
-				System.out.println("Orc is stopped");
+				System.out.println("Orc " + id + " is stopped");
 				break;
 			
 			case 'm': 
 				GameObject obstacle; //allocates object "obstacle" to figure out if obstacle is there
 
 				if (location.equals(destination)) {
-					System.out.println("Orc has arrived");
+					System.out.println("Orc " + id + " has arrived");
 					state = 's';
 					returnVal = true;
 					obstacle = null;
@@ -81,7 +81,7 @@ public class Orc extends GameObject {
 						obstacle.getType() == 's' ||
 						obstacle.getType() == 'S') {
 						state = 'b';
-						System.out.println("Orc has hit an obstacle");
+						System.out.println("Orc " + id + " has hit an obstacle");
 						returnVal = true;
 					} else { //if object isn't an obstacle
 						//System.out.println("Orc is moving");
@@ -94,7 +94,7 @@ public class Orc extends GameObject {
 				break;
 			
 			case 'b': 
-				System.out.println("Orc is blocked!");
+				System.out.println("Orc " + id + " is blocked!");
 				break;
 			default: 
 				System.out.println("No valid state");
@@ -128,6 +128,10 @@ public class Orc extends GameObject {
 		System.out.println("Orc " + id + " stopped");
 	}
 
+	public static int getNumOrcs() { //returns total number of orcs on board
+		return numOrcs;
+	}
+
 	//overrides toString method
 	public String toString() {
 		String returnStr = super.toString();
@@ -143,7 +147,6 @@ public class Orc extends GameObject {
 
 	//updates location following simple algorithm: if there is a longer vertical distance than horizontal 
 	//distance to target, move vertically--if vice-versa, do opposite, if equal, do vertical
-
 	//This function will be overridden in other subclasses of Orc
 	protected void updateLocation() {
 		if (location.equals(destination)) {
@@ -170,9 +173,6 @@ public class Orc extends GameObject {
 		delta = calcDelta();
 
 	}
-
-
-
 
 	//calculates delta (direction to move in), used every tick--speed part not reallly used, it's a holdover from PA3
 	private CartPoint calcDelta() {
