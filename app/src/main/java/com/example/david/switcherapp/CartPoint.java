@@ -1,6 +1,4 @@
-//Basic Cart_Point function, eliminates Cart_Vector for simplicity
-
-package com.example.david.switcherapp;
+package com.example.david.switcherapp;//Basic Cart_Point function, eliminates Cart_Vector for simplicity
 
 public class CartPoint {
 
@@ -43,12 +41,33 @@ public class CartPoint {
 		return returnPoint;
 	}
 
-	public boolean equals(CartPoint otherPoint) {
-		if (x == otherPoint.x && y == otherPoint.y) {
+	//more or less copied from: http://www.geeksforgeeks.org/overriding-equals-method-in-java/
+	public boolean equals(Object o) {
+
+		if(o == this) { //same instance
+			return true;
+		}
+
+		if (!(o instanceof CartPoint)) {
+            return false;
+        }
+
+        CartPoint c = (CartPoint)o;
+
+		if (x == c.x && y == c.y) {
 			return true;
 		} else {
 			return false;
 		}
+		
+	}
+
+	//assuming coords are always positive
+	//taken from: https://stackoverflow.com/questions/9135759/java-hashcode-for-a-point-class
+	public int hashCode() {
+	    int result = (int)x;
+	    result = 31 * result + (int)y;
+	    return result;
 	}
 
 	//returns point coords

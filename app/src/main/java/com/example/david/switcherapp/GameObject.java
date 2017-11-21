@@ -48,17 +48,19 @@ public class GameObject {
 		return state;
 	}
 
-	public String getType() {
-		return "GameObject";
+	public char getType() {
+		return displayCode;
 	}
 
 	public void setLocation(CartPoint newLoc) {
 		location = newLoc;
 	}
 
+	/*
 	public void setState(char newState) {
 		state = newState;
 	}
+	*/
 
 	//swaps location of two GameObjects
 	public static void swap(GameObject obj1, GameObject obj2) {
