@@ -15,7 +15,7 @@ public class Wizard extends GameObject{
 		super(inLoc, 1, 'P');
 		state = 'a';
 		wizardVision = inModel;
-		System.out.println("Wizard constructed.");
+		System.out.println("Wizard constructed");
 	}
 
 	//performs a swap, but is smarter than that in GameObject
@@ -53,8 +53,9 @@ public class Wizard extends GameObject{
 	}
 
 	public boolean update() {
-		if (state == 'a' && wizardVision.getGameObject(location).getType() == 'o') {
+		if (state == 'a' && wizardVision.getOrc(location) != null) {
 			state = 'd'; //d for dead;
+			displayCode = 'X';
 			return true;
 		} else {
 			return false;

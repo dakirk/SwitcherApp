@@ -1,4 +1,6 @@
-package com.example.david.switcherapp;//Basic Cart_Point function, eliminates Cart_Vector for simplicity
+package com.example.david.switcherapp;
+
+//Basic Cart_Point function, eliminates Cart_Vector for simplicity
 
 public class CartPoint {
 

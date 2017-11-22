@@ -94,7 +94,7 @@ public class Orc extends GameObject {
 				break;
 			
 			case 'b': 
-				System.out.println("Orc " + id + " is blocked!");
+				//System.out.println("Orc " + id + " is blocked!");
 				break;
 			default: 
 				System.out.println("No valid state");
