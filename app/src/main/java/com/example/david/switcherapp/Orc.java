@@ -1,5 +1,7 @@
 package com.example.david.switcherapp;
 
+//NOTE: for smart Orc variants, try to implement this algorithm: http://gregtrowbridge.com/a-basic-pathfinding-algorithm/
+
 public class Orc extends GameObject {
 
 	protected double speed; // <-- might not use this
@@ -8,17 +10,10 @@ public class Orc extends GameObject {
 	protected Model orcVision;
 	protected static int numOrcs = 0;
 
-	//default constructor
-	/*
-	public Orc() {
-		super(new CartPoint(), numOrcs, 'o');
-		speed = 1; 
-		orcVision = new Model();
-		numOrcs++;
-		System.out.println("Orc default constructed");
-	}
-	*/
-
+	/**
+	 * Simple constructor, generates a default CartPoint as its location
+	 * @param inModel Model that the Orc will be placed into
+	 */
 	public Orc(Model inModel) {
 		super(new CartPoint(), ++numOrcs, 'o');
 		speed = 1;
@@ -26,6 +21,11 @@ public class Orc extends GameObject {
 		System.out.println("Orc constructed");
 	}
 
+	/**
+	 * Constructor
+	 * @param inLoc	Location of Orc at creation
+	 * @param inModel Model that the Orc will be placed into
+	 */
 	public Orc(CartPoint inLoc, Model inModel) {
 		super(inLoc, ++numOrcs, 'o');
 		speed = 1;
@@ -34,16 +34,10 @@ public class Orc extends GameObject {
 
 	}
 
-	/*
-	public Orc(CartPoint inLoc, int inId, Model inModel) {
-		numOrcs++;
-		super(inLoc, inId, 'o');
-		speed = 1;
-		orcVision = inModel;
-		System.out.println("Orc constructed");
-	}
-	*/
-
+	/**
+	 * Updates the Orc's status depending on its circumstances. Determines whether orc is moving, blocked, stopped, or dead.
+	 * @return true if state changed, false otherwise
+	 */
 	public boolean update() {
 
 		boolean returnVal = false;
@@ -104,16 +98,26 @@ public class Orc extends GameObject {
 		return returnVal;
 	}
 
-	//overrides GameObject function of same name
-	public char getType() {
-		return displayCode;
-	}
-
+	/**
+	 * Getter for the Orc's destination
+	 * @return the CartPoint representing this Orc's destination (the Wizard, usually)
+	 */
 	public CartPoint getDestination() {
 		return destination;
 	}
 
-	//starts the orc moving--in practice, this will only ever be used to target Wizard
+	/**
+	 * Getter for number of Orcs in level
+	 * @return number of orcs that currently exist on board
+	 */
+	public static int getNumOrcs() { //returns total number of orcs on board
+		return numOrcs;
+	}
+
+	/** 
+	 * Starts the orc moving--in practice, this will only ever be used to target Wizard
+	 * @param dest The destination of the Orc (usually a Wizard)
+	 */
 	public void startMoving(CartPoint dest) {
 		setupDestination(dest);
 		//set state and print it
@@ -122,17 +126,19 @@ public class Orc extends GameObject {
 		
 	}
 
-	//forces orc to stop--may not use this?
+	/** 
+	 * Forces orc to stop--may not use this?
+	 */
 	public void stop() {
 		state = 's';
 		System.out.println("Orc " + id + " stopped");
 	}
 
-	public static int getNumOrcs() { //returns total number of orcs on board
-		return numOrcs;
-	}
-
-	//overrides toString method
+	/**
+	 * Overrides toString method
+	 * @return GameObject's toString concatenated with Orc's status (stopped, blocked, or moving, and eventually will also include dead)
+	 */
+	@Override
 	public String toString() {
 		String returnStr = super.toString();
 		if (state == 's') {
@@ -145,9 +151,10 @@ public class Orc extends GameObject {
 		return returnStr;
 	}
 
-	//updates location following simple algorithm: if there is a longer vertical distance than horizontal 
-	//distance to target, move vertically--if vice-versa, do opposite, if equal, do vertical
-	//This function will be overridden in other subclasses of Orc
+	/**
+	 * Updates location following simple algorithm. If there is a longer vertical distance than horizontal 
+	 * distance to target, move vertically--if vice-versa, do opposite, if equal, do vertical.
+	 */
 	protected void updateLocation() {
 		if (location.equals(destination)) {
 			System.out.println("Arrived at target");
@@ -163,18 +170,30 @@ public class Orc extends GameObject {
 		}
 	}
 
+	/**
+	 * Gets the GameObject at the location given by the input x and y coordinates, as an alternative to the method provided by Model
+	 * @param x The x-coordinate to be checked
+	 * @param y The y-coordinate to be checked
+	 * @return The GameObject at the given location, or null if nothing is there
+	 */
 	protected GameObject getObjAtPos(double x, double y) {
 		return orcVision.getGameObject(new CartPoint(x, y));
 	}
 
-	//sets up destination--might be a useless holdover from PA3
+	/** 
+	 * Sets up destination--might be a useless holdover from PA3
+	 * @param dest Orc's destination, usually Wizard
+	 */
 	protected void setupDestination(CartPoint dest) {
 		destination = dest;
 		delta = calcDelta();
 
 	}
 
-	//calculates delta (direction to move in), used every tick--speed part not reallly used, it's a holdover from PA3
+	/**
+	 * Calculates delta (direction to move in), used every tick. Speed part is not reallly used, it's a holdover from PA3
+	 * @return The CartPoint representing the required "delta" to move directly to the destination, ignoring the grid
+	 */
 	private CartPoint calcDelta() {
 		CartPoint deltaPoint = destination.subtract(location);
 		double unitSpeed = speed/(CartPoint.cartDistance(destination, location));
