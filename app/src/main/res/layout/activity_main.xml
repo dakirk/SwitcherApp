@@ -4,27 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.david.switcherapp.MainActivity">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="cursive"
-        android:text="@string/GameName"
-        android:textAlignment="center"
-        android:textColor="?android:attr/colorActivatedHighlight"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:typeface="monospace"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context="com.example.david.switcherapp.MainActivity"
+    android:background="#00695C">
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -33,48 +14,45 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="226dp" />
 
-    <Button
-        android:id="@+id/button3"
-        style="@style/Base.TextAppearance.AppCompat.Medium"
+    <ImageButton
+        android:id="@+id/button9"
+        android:layout_width="116dp"
+        android:layout_height="69dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="24dp"
+        android:background="@mipmap/start"
+        android:contentDescription="@string/Button"
+        android:onClick="sendMessage"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.849"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
         android:layout_width="116dp"
         android:layout_height="69dp"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="8dp"
-        android:fontFamily="serif-monospace"
-        android:text="@string/levelSelect"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:typeface="monospace"
+        android:contentDescription="@string/Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.22"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@mipmap/level_select"/>
 
-    <Button
-        android:id="@+id/angry_btn"
-
-        android:layout_width="116dp"
-        android:layout_height="69dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
-
-        android:layout_marginStart="24dp"
-        android:background="@drawable/buttonshape"
-        android:onClick="sendMessage"
-        android:shadowColor="#A8A8A8"
-        android:shadowDx="1"
-        android:shadowDy="0"
-        android:shadowRadius="5"
-        android:text="@string/start"
-        android:textAlignment="center"
-        android:textColor="#FDFFC2"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.779"
-        app:layout_constraintStart_toStartOf="parent" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="320dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/title"
+        android:contentDescription="@string/Button"/>
 
 </android.support.constraint.ConstraintLayout>
