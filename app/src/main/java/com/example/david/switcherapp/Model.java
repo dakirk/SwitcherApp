@@ -18,6 +18,10 @@ public class Model {
 
 //Setup
 
+	/**
+	 * Constructor
+	 * @param filename name of the level file to be loaded
+	 */
 	public Model(String filename) {
 		//eventually, will have it read a file to get object locations, but for now I'll hardcode them
 		size = 9;
@@ -45,7 +49,11 @@ public class Model {
 		}
 	}
 
-	//modified from https://www.mkyong.com/java/java-read-a-text-file-line-by-line/
+	/**
+	 * Creates GameObjects for level. Modified from https://www.mkyong.com/java/java-read-a-text-file-line-by-line/
+	 * @param filename name of level file to be loaded
+	 * @exception IOException if file read fails
+	 */
 	private void loadLevel(String filename) throws IOException {
 
 		try {
@@ -97,7 +105,10 @@ public class Model {
         }
 	}
 
-	//Initializes all objects in game (mainly, fills orcList and sets them to attack)
+	/**
+	 * Initializes all objects in game (mainly, fills orcList and sets them to attack)
+	 * @return true if one wizard, false otherwise
+	 */
 	private boolean initGame() { //returns true if initialized successfully (wizard present)
 		boolean isViable = false;
 		for (GameObject obj : objList) {
@@ -127,7 +138,10 @@ public class Model {
 
 //Updating
 
-	//updates all GameObjects
+	/**
+	 * Updates all GameObjects in the Model
+	 * @return true if something updated, false otherwise
+	 */
 	public boolean update() {
 
 		if (gameState == 0) {
@@ -178,7 +192,9 @@ public class Model {
 
 	}
 
-	//fills objArray with blank spaces
+	/**
+	 * Wipes the viewArray clean
+	 */
 	public void clear() {
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < size; j++) {
@@ -189,12 +205,19 @@ public class Model {
 
 //Getters
 
-	//getter for game state--will be used to determine whether level is over
+	/**
+	 * Getter for game state. Will be used to determine whether level is over.
+	 * @return 0 if game still running, 1 if player won, -1 if player lost
+	 */
 	public int getGameState() {
 		return gameState;
 	}
 
-	//searches for a GameObject by location
+	/**
+	 * Searches for a GameObject by location
+	 * @param objLocation the location of the object to be searched for
+	 * @return the GameObject at that location if there is one, or null otherwise
+	 */
 	public GameObject getGameObject(CartPoint objLocation) {
 		for (GameObject obj : objList) {
 			if (obj.getLocation().equals(objLocation)) {

@@ -6,7 +6,7 @@ public class Wall extends GameObject {
 
 	/**
 	 * Constructor
-	 * @param inLoc	The location the wall will be placed at
+	 * @param inLoc	the location the wall will be placed at
 	 */
 	public Wall(CartPoint inLoc) {
 		super(inLoc, numWalls, 'W'); //W is a solid wall, w is a broken wall

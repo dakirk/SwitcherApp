@@ -29,8 +29,8 @@ public class Wizard extends GameObject{
 
 	/** 
 	 * Performs a swap, but is smarter than that in GameObject. Excludes objects with the types included in the string excludeChars.
-	 * @param p1 First point to swap
-	 * @param p2 Second point to swap
+	 * @param p1 first point to swap
+	 * @param p2 second point to swap
 	 * @see CartPoint
 	 */
 	public void magicSwap(CartPoint p1, CartPoint p2) {

@@ -23,7 +23,7 @@ public class Orc extends GameObject {
 
 	/**
 	 * Constructor
-	 * @param inLoc	Location of Orc at creation
+	 * @param inLoc	location of Orc at creation
 	 * @param inModel Model that the Orc will be placed into
 	 */
 	public Orc(CartPoint inLoc, Model inModel) {
@@ -116,7 +116,7 @@ public class Orc extends GameObject {
 
 	/** 
 	 * Starts the orc moving--in practice, this will only ever be used to target Wizard
-	 * @param dest The destination of the Orc (usually a Wizard)
+	 * @param dest the destination of the Orc (usually a Wizard)
 	 */
 	public void startMoving(CartPoint dest) {
 		setupDestination(dest);
@@ -137,6 +137,7 @@ public class Orc extends GameObject {
 	/**
 	 * Overrides toString method
 	 * @return GameObject's toString concatenated with Orc's status (stopped, blocked, or moving, and eventually will also include dead)
+	 * @see GameObject
 	 */
 	@Override
 	public String toString() {
@@ -172,9 +173,9 @@ public class Orc extends GameObject {
 
 	/**
 	 * Gets the GameObject at the location given by the input x and y coordinates, as an alternative to the method provided by Model
-	 * @param x The x-coordinate to be checked
-	 * @param y The y-coordinate to be checked
-	 * @return The GameObject at the given location, or null if nothing is there
+	 * @param x the x-coordinate to be checked
+	 * @param y the y-coordinate to be checked
+	 * @return the GameObject at the given location, or null if nothing is there
 	 */
 	protected GameObject getObjAtPos(double x, double y) {
 		return orcVision.getGameObject(new CartPoint(x, y));
@@ -192,7 +193,7 @@ public class Orc extends GameObject {
 
 	/**
 	 * Calculates delta (direction to move in), used every tick. Speed part is not reallly used, it's a holdover from PA3
-	 * @return The CartPoint representing the required "delta" to move directly to the destination, ignoring the grid
+	 * @return the CartPoint representing the required "delta" to move directly to the destination, ignoring the grid
 	 */
 	private CartPoint calcDelta() {
 		CartPoint deltaPoint = destination.subtract(location);
