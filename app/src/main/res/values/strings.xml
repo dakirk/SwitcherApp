@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SwitcherApp</string>
     <string name="edited">Edited!</string>
-    <string name="start">START</string>
     <string name="levelSelect">Level\nSelect</string>
+    <string name="GameName">I Smite You!</string>
+    <string name="start">START</string>
+    <string name="Button"> </string>
 </resources>
