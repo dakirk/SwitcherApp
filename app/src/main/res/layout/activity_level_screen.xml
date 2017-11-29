@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A1887F"
     tools:context="com.example.david.switcherapp.LevelScreen"
-    android:background="#A1887F">
+    android:id="@+id/layout1">
 
     <GridLayout
         android:layout_width="363dp"
@@ -27,9 +28,9 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@mipmap/grass"
+            android:contentDescription="@string/Button"
             android:onClick="onClick"
-            android:text=""
-            android:contentDescription="@string/Button"/>
+            android:text="" />
 
 
         <ImageButton
@@ -39,9 +40,9 @@
             android:layout_column="1"
             android:layout_row="0"
             android:background="@mipmap/grass"
+            android:contentDescription="@string/Button"
             android:onClick="onClick"
-            android:text=""
-            android:contentDescription="@string/Button"/>
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button19"
@@ -50,9 +51,9 @@
             android:layout_column="0"
             android:layout_row="1"
             android:background="@mipmap/grass"
+            android:contentDescription="@string/Button"
             android:onClick="onClick"
-            android:text=""
-            android:contentDescription="@string/Button"/>
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button2"
@@ -61,9 +62,9 @@
             android:layout_column="0"
             android:layout_row="2"
             android:background="@mipmap/grass"
+            android:contentDescription="@string/Button"
             android:onClick="onClick"
-            android:text=""
-            android:contentDescription="@string/Button"/>
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button3"
@@ -71,10 +72,10 @@
             android:layout_height="40dp"
             android:layout_column="0"
             android:layout_row="3"
-            android:text=""
             android:background="@mipmap/grass"
             android:contentDescription="@string/Button"
-            />
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button4"
@@ -82,10 +83,10 @@
             android:layout_height="40dp"
             android:layout_column="0"
             android:layout_row="4"
-            android:text=""
             android:background="@mipmap/grass"
             android:contentDescription="@string/Button"
-            />
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button5"
@@ -93,9 +94,10 @@
             android:layout_height="40dp"
             android:layout_column="0"
             android:layout_row="5"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button6"
@@ -103,9 +105,10 @@
             android:layout_height="40dp"
             android:layout_column="0"
             android:layout_row="6"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button7"
@@ -113,9 +116,10 @@
             android:layout_height="40dp"
             android:layout_column="0"
             android:layout_row="7"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button8"
@@ -123,9 +127,10 @@
             android:layout_height="40dp"
             android:layout_column="0"
             android:layout_row="8"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button20"
@@ -133,9 +138,10 @@
             android:layout_height="40dp"
             android:layout_column="2"
             android:layout_row="0"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button30"
@@ -143,9 +149,10 @@
             android:layout_height="40dp"
             android:layout_column="3"
             android:layout_row="0"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button40"
@@ -153,9 +160,10 @@
             android:layout_height="40dp"
             android:layout_column="4"
             android:layout_row="0"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button50"
@@ -163,9 +171,10 @@
             android:layout_height="40dp"
             android:layout_column="5"
             android:layout_row="0"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button60"
@@ -173,9 +182,10 @@
             android:layout_height="40dp"
             android:layout_column="6"
             android:layout_row="0"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button70"
@@ -183,9 +193,10 @@
             android:layout_height="40dp"
             android:layout_column="7"
             android:layout_row="0"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button80"
@@ -193,9 +204,10 @@
             android:layout_height="40dp"
             android:layout_column="8"
             android:layout_row="0"
-            android:text=""
+            android:background="@mipmap/grass"
             android:contentDescription="@string/Button"
-            android:background="@mipmap/grass"/>
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button12"
@@ -203,9 +215,10 @@
             android:layout_height="40dp"
             android:layout_column="1"
             android:layout_row="2"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button11"
@@ -213,9 +226,10 @@
             android:layout_height="40dp"
             android:layout_column="1"
             android:layout_row="1"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button13"
@@ -223,9 +237,10 @@
             android:layout_height="40dp"
             android:layout_column="1"
             android:layout_row="3"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button14"
@@ -233,9 +248,10 @@
             android:layout_height="40dp"
             android:layout_column="1"
             android:layout_row="4"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button15"
@@ -243,9 +259,10 @@
             android:layout_height="40dp"
             android:layout_column="1"
             android:layout_row="5"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button16"
@@ -253,9 +270,10 @@
             android:layout_height="40dp"
             android:layout_column="1"
             android:layout_row="6"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button17"
@@ -263,9 +281,10 @@
             android:layout_height="40dp"
             android:layout_column="1"
             android:layout_row="7"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button18"
@@ -273,9 +292,10 @@
             android:layout_height="40dp"
             android:layout_column="1"
             android:layout_row="8"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button22"
@@ -283,9 +303,10 @@
             android:layout_height="40dp"
             android:layout_column="2"
             android:layout_row="2"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button21"
@@ -293,9 +314,10 @@
             android:layout_height="40dp"
             android:layout_column="2"
             android:layout_row="1"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button23"
@@ -303,9 +325,10 @@
             android:layout_height="40dp"
             android:layout_column="2"
             android:layout_row="3"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button24"
@@ -313,9 +336,10 @@
             android:layout_height="40dp"
             android:layout_column="2"
             android:layout_row="4"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button25"
@@ -323,9 +347,10 @@
             android:layout_height="40dp"
             android:layout_column="2"
             android:layout_row="5"
-            android:text=""
+            android:background="@mipmap/grass"
             android:contentDescription="@string/Button"
-            android:background="@mipmap/grass"/>
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button26"
@@ -333,9 +358,10 @@
             android:layout_height="40dp"
             android:layout_column="2"
             android:layout_row="6"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button27"
@@ -343,9 +369,10 @@
             android:layout_height="40dp"
             android:layout_column="2"
             android:layout_row="7"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button28"
@@ -353,9 +380,10 @@
             android:layout_height="40dp"
             android:layout_column="2"
             android:layout_row="8"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button32"
@@ -363,9 +391,10 @@
             android:layout_height="40dp"
             android:layout_column="3"
             android:layout_row="2"
-            android:text=""
+            android:background="@mipmap/grass"
             android:contentDescription="@string/Button"
-            android:background="@mipmap/grass"/>
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button31"
@@ -373,9 +402,10 @@
             android:layout_height="40dp"
             android:layout_column="3"
             android:layout_row="1"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button33"
@@ -383,9 +413,10 @@
             android:layout_height="40dp"
             android:layout_column="3"
             android:layout_row="3"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button34"
@@ -393,9 +424,10 @@
             android:layout_height="40dp"
             android:layout_column="3"
             android:layout_row="4"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button35"
@@ -403,9 +435,10 @@
             android:layout_height="40dp"
             android:layout_column="3"
             android:layout_row="5"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button36"
@@ -413,9 +446,10 @@
             android:layout_height="40dp"
             android:layout_column="3"
             android:layout_row="6"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button37"
@@ -423,9 +457,10 @@
             android:layout_height="40dp"
             android:layout_column="3"
             android:layout_row="7"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button38"
@@ -433,9 +468,10 @@
             android:layout_height="40dp"
             android:layout_column="3"
             android:layout_row="8"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button42"
@@ -443,9 +479,10 @@
             android:layout_height="40dp"
             android:layout_column="4"
             android:layout_row="2"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button41"
@@ -453,9 +490,10 @@
             android:layout_height="40dp"
             android:layout_column="4"
             android:layout_row="1"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button43"
@@ -463,9 +501,10 @@
             android:layout_height="40dp"
             android:layout_column="4"
             android:layout_row="3"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button44"
@@ -473,9 +512,10 @@
             android:layout_height="40dp"
             android:layout_column="4"
             android:layout_row="4"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button45"
@@ -483,9 +523,10 @@
             android:layout_height="40dp"
             android:layout_column="4"
             android:layout_row="5"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button46"
@@ -493,9 +534,10 @@
             android:layout_height="40dp"
             android:layout_column="4"
             android:layout_row="6"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button47"
@@ -503,9 +545,10 @@
             android:layout_height="40dp"
             android:layout_column="4"
             android:layout_row="7"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button48"
@@ -513,9 +556,10 @@
             android:layout_height="40dp"
             android:layout_column="4"
             android:layout_row="8"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button52"
@@ -523,9 +567,10 @@
             android:layout_height="40dp"
             android:layout_column="5"
             android:layout_row="2"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button51"
@@ -533,9 +578,10 @@
             android:layout_height="40dp"
             android:layout_column="5"
             android:layout_row="1"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button53"
@@ -543,9 +589,10 @@
             android:layout_height="40dp"
             android:layout_column="5"
             android:layout_row="3"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button54"
@@ -553,9 +600,10 @@
             android:layout_height="40dp"
             android:layout_column="5"
             android:layout_row="4"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button55"
@@ -563,9 +611,10 @@
             android:layout_height="40dp"
             android:layout_column="5"
             android:layout_row="5"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button56"
@@ -573,9 +622,10 @@
             android:layout_height="40dp"
             android:layout_column="5"
             android:layout_row="6"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button57"
@@ -583,9 +633,10 @@
             android:layout_height="40dp"
             android:layout_column="5"
             android:layout_row="7"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button58"
@@ -593,9 +644,10 @@
             android:layout_height="40dp"
             android:layout_column="5"
             android:layout_row="8"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button61"
@@ -603,9 +655,10 @@
             android:layout_height="40dp"
             android:layout_column="6"
             android:layout_row="1"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button62"
@@ -613,9 +666,10 @@
             android:layout_height="40dp"
             android:layout_column="6"
             android:layout_row="2"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button63"
@@ -623,9 +677,10 @@
             android:layout_height="40dp"
             android:layout_column="6"
             android:layout_row="3"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button64"
@@ -633,9 +688,10 @@
             android:layout_height="40dp"
             android:layout_column="6"
             android:layout_row="4"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button65"
@@ -643,9 +699,10 @@
             android:layout_height="40dp"
             android:layout_column="6"
             android:layout_row="5"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button66"
@@ -653,9 +710,10 @@
             android:layout_height="40dp"
             android:layout_column="6"
             android:layout_row="6"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button67"
@@ -663,9 +721,10 @@
             android:layout_height="40dp"
             android:layout_column="6"
             android:layout_row="7"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button68"
@@ -673,9 +732,10 @@
             android:layout_height="40dp"
             android:layout_column="6"
             android:layout_row="8"
-            android:text=""
+            android:background="@mipmap/grass"
             android:contentDescription="@string/Button"
-            android:background="@mipmap/grass"/>
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button71"
@@ -683,9 +743,10 @@
             android:layout_height="40dp"
             android:layout_column="7"
             android:layout_row="1"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button72"
@@ -693,9 +754,10 @@
             android:layout_height="40dp"
             android:layout_column="7"
             android:layout_row="2"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button73"
@@ -703,9 +765,10 @@
             android:layout_height="40dp"
             android:layout_column="7"
             android:layout_row="3"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button74"
@@ -713,9 +776,10 @@
             android:layout_height="40dp"
             android:layout_column="7"
             android:layout_row="4"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button75"
@@ -723,9 +787,10 @@
             android:layout_height="40dp"
             android:layout_column="7"
             android:layout_row="5"
-            android:text=""
+            android:background="@mipmap/grass"
             android:contentDescription="@string/Button"
-            android:background="@mipmap/grass"/>
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button76"
@@ -733,9 +798,10 @@
             android:layout_height="40dp"
             android:layout_column="7"
             android:layout_row="6"
-            android:text=""
+            android:background="@mipmap/grass"
             android:contentDescription="@string/Button"
-            android:background="@mipmap/grass"/>
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button77"
@@ -743,9 +809,10 @@
             android:layout_height="40dp"
             android:layout_column="7"
             android:layout_row="7"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button78"
@@ -753,9 +820,10 @@
             android:layout_height="40dp"
             android:layout_column="7"
             android:layout_row="8"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button81"
@@ -763,9 +831,10 @@
             android:layout_height="40dp"
             android:layout_column="8"
             android:layout_row="1"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button82"
@@ -773,9 +842,10 @@
             android:layout_height="40dp"
             android:layout_column="8"
             android:layout_row="2"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button83"
@@ -783,9 +853,10 @@
             android:layout_height="40dp"
             android:layout_column="8"
             android:layout_row="3"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button84"
@@ -793,9 +864,10 @@
             android:layout_height="40dp"
             android:layout_column="8"
             android:layout_row="4"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button85"
@@ -803,9 +875,10 @@
             android:layout_height="40dp"
             android:layout_column="8"
             android:layout_row="5"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button86"
@@ -813,9 +886,10 @@
             android:layout_height="40dp"
             android:layout_column="8"
             android:layout_row="6"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button87"
@@ -823,9 +897,10 @@
             android:layout_height="40dp"
             android:layout_column="8"
             android:layout_row="7"
-            android:text=""
+            android:background="@mipmap/grass"
             android:contentDescription="@string/Button"
-            android:background="@mipmap/grass"/>
+            android:onClick="onClick"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button88"
@@ -833,9 +908,10 @@
             android:layout_height="40dp"
             android:layout_column="8"
             android:layout_row="8"
-            android:text=""
             android:background="@mipmap/grass"
-            android:contentDescription="@string/Button"/>
+            android:contentDescription="@string/Button"
+            android:onClick="onClick"
+            android:text="" />
     </GridLayout>
 
 </android.support.constraint.ConstraintLayout>

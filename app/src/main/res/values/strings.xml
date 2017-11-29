@@ -5,4 +5,5 @@
     <string name="GameName">I Smite You!</string>
     <string name="start">START</string>
     <string name="Button"> </string>
+    <string name="Dont_lose">Don\'t let an orc reach you!</string>
 </resources>
