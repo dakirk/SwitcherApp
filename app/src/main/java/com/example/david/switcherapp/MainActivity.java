@@ -7,7 +7,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    //comment
+    //comment again
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
