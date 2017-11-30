@@ -20,6 +20,9 @@ public class LevelScreen extends AppCompatActivity {
     public ImageButton bEnd;
     public Drawable swapper;
     public static View view;
+    double x, y;
+    CartPoint bStartPoint;
+    CartPoint bEndPoint;
 
     int i = 1;
 
@@ -66,20 +69,30 @@ public class LevelScreen extends AppCompatActivity {
     public void ButtonFrom(View view)
     {
         bStart = findViewById(view.getId());
+        String Btag = (String)view.getTag();
+        x = (double)Btag.charAt(0);
+        y = (double)Btag.charAt(1);
+        bStartPoint = new CartPoint(x,y);
         i=2;
     }
 
     public void ButtonTo(View v)
     {
         bEnd = findViewById(v.getId());
+        String Btag = (String)view.getTag();
+        x = (double)Btag.charAt(0);
+        y = (double)Btag.charAt(1);
+        bEndPoint = new CartPoint(x,y);
         i=3;
     }
 
-    public void Swap()
-    {
-        swapper = bStart.getBackground();
-        bStart.setBackground(bEnd.getBackground());
-        bEnd.setBackground(swapper);
+    public void Swap() {
+        boolean flag = Wizard.magicSwap(bStartPoint, bEndPoint);
+        if (flag) {
+            swapper = bStart.getBackground();
+            bStart.setBackground(bEnd.getBackground());
+            bEnd.setBackground(swapper);
+        }
     }
 
     public static void InitializeButton(char sprite, double i, double j)

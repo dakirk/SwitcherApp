@@ -2,7 +2,7 @@ package com.example.david.switcherapp;
 
 public class Wizard extends GameObject{
 
-	private Model wizardVision;
+	private static Model wizardVision;
 
 	/**
 	 * Simple constructor, generates a default CartPoint as its location
@@ -33,7 +33,7 @@ public class Wizard extends GameObject{
 	 * @param p2 second point to swap
 	 * @see CartPoint
 	 */
-	public boolean magicSwap(CartPoint p1, CartPoint p2) {
+	public static boolean magicSwap(CartPoint p1, CartPoint p2) {
 
 		GameObject obj1 = wizardVision.getGameObject(p1);
 		GameObject obj2 = wizardVision.getGameObject(p2);
