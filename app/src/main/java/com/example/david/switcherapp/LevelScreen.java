@@ -41,6 +41,7 @@ public class LevelScreen extends AppCompatActivity {
 
         boolean isMoving;
 
+        testModel.printBoard();
         do {
             try {
                 System.in.read(); //waits for user to press enter

@@ -1,13 +1,13 @@
 package com.example.david.switcherapp;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 
 import java.io.InputStream;
 import java.util.*;
 import java.io.IOException;
-import java.io.File;
-import java.io.FileReader;
 import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class Model {
 
@@ -61,55 +61,55 @@ public class Model {
 	private void loadLevel(String filename) throws IOException {
 
 		try {
+			AssetManager am = context.getAssets();
 
-			InputStream is = null;
-			is = context.getAssets().open("Level1.txt");
 
-            File f = new File(filename);
+			InputStream is = am.open(filename);
+			BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+			String readLine;
+			int lineCount = 0;
 
-            BufferedReader b = new BufferedReader(new FileReader(f));
+			while ((readLine = reader.readLine()) != null) {
 
-            String readLine = "";
+				if (lineCount == 0) { //first line is always the hint
+					hint = readLine;
+					//System.out.println(hint);
+				} else { //all other lines are object data
 
-            System.out.println("Reading file using Buffered Reader");
+					String[] words = readLine.split("\\s");
+					System.out.println(words);
+					if (words[0].length() == 1) {
 
-            int lineCount = 0;
+						//get coords for object (no error checking)
+						double xCoord = Double.parseDouble(words[1]);
+						double yCoord = Double.parseDouble(words[2]);
 
-            while ((readLine = b.readLine()) != null) {
+						switch (words[0]) { //check if any objects available
+							case "o":
+								objList.add(new Orc(new CartPoint(xCoord, yCoord), this));
+								System.out.println("Creating Orc");
+								break;
+							case "W":
+								objList.add(new Wall(new CartPoint(xCoord, yCoord)));
+								System.out.println("Creating Wall");
+								break;
+							case "P":
+								objList.add(new Wizard(new CartPoint(xCoord, yCoord), this));
+								System.out.println("Creating Wizard");
+								break;
+							default:
+								System.out.println("Invalid object type");
+								break;
+						}
+					}
+				}
+				lineCount++;
+			}
+			System.out.println(lineCount);
 
-            	if (lineCount == 0) { //first line is always the hint
-            		hint = readLine;
-            	} else { //all other lines are object data
-
-	                String[] words = readLine.split("\\s");
-	                if (words[0].length() == 1) {
-
-	                	//get coords for object (no error checking)
-	                	double xCoord = Double.parseDouble(words[1]);
-	                	double yCoord = Double.parseDouble(words[2]);
-
-	                	switch (words[0]) { //check if any objects available
-	                		case "o":
-	                			objList.add(new Orc(new CartPoint(xCoord, yCoord), this));
-	                			break;
-	                		case "W":
-	                			objList.add(new Wall(new CartPoint(xCoord, yCoord)));
-	                			break;
-	                		case "P":
-	                			objList.add(new Wizard(new CartPoint(xCoord, yCoord), this));
-	                			break;
-	                		default:
-	                			System.out.println("Invalid object type");
-	                			break;
-	                	}
-                	}
-                }
-                lineCount++;
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
