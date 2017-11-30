@@ -6,6 +6,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.support.design.widget.Snackbar;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ public class LevelScreen extends AppCompatActivity {
     public ImageButton bStart;
     public ImageButton bEnd;
     public Drawable swapper;
+    public static View view;
 
     int i = 1;
 
@@ -25,6 +27,7 @@ public class LevelScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_screen);
+        view = new View(this);
 
         Model testModel = new Model("Level1.txt",this);
 
@@ -81,6 +84,24 @@ public class LevelScreen extends AppCompatActivity {
 
     public static void InitializeButton(char sprite, double i, double j)
     {
+        if(i!=-1&&j!=-1) {
+            String str = "";
+            str = str + (char) i + (char) j;
+            ImageButton b = view.findViewWithTag(str);
+            switch (sprite) {
+                case 'o':
+                    b.setImageResource(R.mipmap.orc);
+                    break;
+                case 'W':
+                    b.setImageResource(R.mipmap.wall);
+                    break;
+                case 'P':
+                    b.setImageResource(R.mipmap.wizard);
+                    break;
+                default:
+                    System.out.println("Button not found.");
+            }
+        }
 
 
     }

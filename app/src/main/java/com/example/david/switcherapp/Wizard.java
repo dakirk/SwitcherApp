@@ -33,38 +33,46 @@ public class Wizard extends GameObject{
 	 * @param p2 second point to swap
 	 * @see CartPoint
 	 */
-	public void magicSwap(CartPoint p1, CartPoint p2) {
+	public boolean magicSwap(CartPoint p1, CartPoint p2) {
 
 		GameObject obj1 = wizardVision.getGameObject(p1);
 		GameObject obj2 = wizardVision.getGameObject(p2);
 		String excludeChars = "wWP"; //list of unteleportable objects
+		boolean flag = true;
 
 		if(obj1 != null && obj2 != null) { //if both objects exist
 			if (excludeChars.indexOf(obj1.getType()) != -1 || excludeChars.indexOf(obj2.getType()) != -1) { //if type of either object is a wall or wizard
 				System.out.println("Cannot perform swap: Magic doesn't work on walls or wizards!");
-				return;
+				flag = false;
 			} else {
 				obj1.swap(obj2);
+				flag = true;
 			}
 
 		} else if (obj1 == null && obj2 != null) { //if first object doesn't exist
 			if (excludeChars.indexOf(obj2.getType()) != -1) {
 				obj1 = obj2;
 				obj2 = null;
+				flag = true;
 			} else {
 				System.out.println("Cannot perform swap: Magic doesn't work on walls or wizards!");
+				flag = false;
 			}
 		} else if (obj1 != null && obj2 == null) { //if second object doesn't exist
 			if (excludeChars.indexOf(obj1.getType()) != -1) {
 				obj2 = obj1;
 				obj1 = null;
+				flag = true;
 			} else {
 				System.out.println("Cannot perform swap: Magic doesn't work on walls or wizards!");
+				flag = false;
 			}
 		} else { //if neither object exists
 			System.out.println("Nothing to swap!");
-			return;
+			flag = false;
 		}
+
+		return flag;
 	}
 
 	/** 
