@@ -1,6 +1,6 @@
 package com.example.david.switcherapp;
 
-public class GameObject {
+public abstract class GameObject {
 
 	protected char displayCode;
 	protected int id;
@@ -48,27 +48,25 @@ public class GameObject {
 		return state;
 	}
 
-	public String getType() {
-		return "GameObject";
+	public char getType() {
+		return displayCode;
 	}
 
 	public void setLocation(CartPoint newLoc) {
 		location = newLoc;
 	}
 
-	public void setState(char newState) {
-		state = newState;
-	}
-
 	//swaps location of two GameObjects
-	public static void swap(GameObject obj1, GameObject obj2) {
-		CartPoint tempLoc = obj2.getLocation();
-		obj2.setLocation(obj1.getLocation());
-		obj1.setLocation(tempLoc);
+	public void swap(GameObject obj) {
+		CartPoint tempLoc = obj.getLocation();
+		obj.setLocation(location);
+		location = tempLoc;
 	}
 
 	//returns string describing object
 	public String toString() {
 		return Character.toString(displayCode) + id + " at " + location;
 	}
+
+	abstract boolean update();
 }
