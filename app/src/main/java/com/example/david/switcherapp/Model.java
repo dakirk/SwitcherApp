@@ -88,6 +88,7 @@ public class Model {
 							case "o":
 								objList.add(new Orc(new CartPoint(xCoord, yCoord), this));
 								System.out.println("Creating Orc");
+								//LevelScreen.InitializeButton(xCoord,yCoord,"o");
 								break;
 							case "W":
 								objList.add(new Wall(new CartPoint(xCoord, yCoord)));
@@ -267,11 +268,18 @@ public class Model {
 	}
 
 	public void printBoard() {
-		for (int i = 0; i < size; i++) {
+		int i;
+		for (i = 0; i < size; i++) {
 			for (int j = 0; j < size; j++) {
 				System.out.print(" " + viewArray[i][j]);
 			}
 			System.out.println();
+		}
+		for(GameObject obj:objList)
+		{
+			char type = obj.getType();
+			CartPoint coord = obj.getLocation();
+			LevelScreen.InitializeButton(type,coord.x, coord.y);
 		}
 		System.out.println();
 	}

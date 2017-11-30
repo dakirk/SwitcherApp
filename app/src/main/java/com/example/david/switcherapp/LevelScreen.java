@@ -26,17 +26,6 @@ public class LevelScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_screen);
 
-        //Snackbar mySnackbar = Snackbar.make(findViewById(android.R.id.content), "Don\'t let an orc get you!" ,Snackbar.LENGTH_LONG);
-        //mySnackbar.show();
-
-        //Context context = getApplicationContext();
-        //CharSequence text = "Hello toast!";
-        //int duration = Toast.LENGTH_LONG;
-        //Toast toast = Toast.makeText(context, text, duration);
-        //toast.show();
-
-        //trying dialog instead
-
         Model testModel = new Model("Level1.txt",this);
 
         boolean isMoving;
@@ -88,5 +77,11 @@ public class LevelScreen extends AppCompatActivity {
         swapper = bStart.getBackground();
         bStart.setBackground(bEnd.getBackground());
         bEnd.setBackground(swapper);
+    }
+
+    public static void InitializeButton(char sprite, double i, double j)
+    {
+
+
     }
 }
