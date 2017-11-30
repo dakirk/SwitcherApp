@@ -1,5 +1,8 @@
 package com.example.david.switcherapp;
 
+import android.content.Context;
+
+import java.io.InputStream;
 import java.util.*;
 import java.io.IOException;
 import java.io.File;
@@ -15,18 +18,19 @@ public class Model {
 	private ArrayList<Orc> orcList = new ArrayList<Orc>(); //list of orcs, for sweeping orc operations
 	private Wizard protagonist; //only one wizard per level, to avoid confusion
 	private String hint;
-
+	private Context context;
 //Setup
 
 	/**
 	 * Constructor
 	 * @param filename name of the level file to be loaded
 	 */
-	public Model(String filename) {
+	public Model(String filename, Context mContext) {
 		//eventually, will have it read a file to get object locations, but for now I'll hardcode them
 		size = 9;
 		viewArray = new char[size][size];
 		clear();
+		context = mContext;
 
 		boolean validLevel;
 
@@ -57,6 +61,9 @@ public class Model {
 	private void loadLevel(String filename) throws IOException {
 
 		try {
+
+			InputStream is = null;
+			is = context.getAssets().open("Level1.txt");
 
             File f = new File(filename);
 

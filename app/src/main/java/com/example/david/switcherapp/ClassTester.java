@@ -1,4 +1,4 @@
-package com.example.david.switcherapp;//TO DO:
+/*package com.example.david.switcherapp;//TO DO:
 //1. Add a "load" function to Model, which allows it to read a text document and spawn orcs, walls, and wizards (in that order)
 //2. Test swap mechanic a bit more
 //3. In lieu of a user interface, make a text-based one, similar to PA3?
@@ -6,6 +6,7 @@ package com.example.david.switcherapp;//TO DO:
 import java.io.IOException;
 
 public class ClassTester {
+
 	public static void main(String[] args) {
 		
 		CartPoint point1 = new CartPoint(0, 0);
@@ -14,7 +15,8 @@ public class ClassTester {
 		CartPoint point4 = new CartPoint(8, 0);
 		CartPoint point5 = new CartPoint(8, 8);
 
-		Model testModel = new Model("Level1.txt");
+
+		Model testModel = new Model("Level1.txt", );
 		// Orc orc1 = new Orc(point1, testModel);
 		// Orc orc2 = new Orc(point4, testModel);
 		// Wizard wizard = new Wizard(point5, testModel);
@@ -67,4 +69,4 @@ public class ClassTester {
 		//if all orcs dead or blocked at the end of a tick, game won
 		//if any orc position matches wizard position, game lost
 	}
-}
+}*/

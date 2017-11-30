@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.support.design.widget.Snackbar;
 import android.widget.Toast;
 
+import java.io.IOException;
 
 
 public class LevelScreen extends AppCompatActivity {
@@ -35,6 +36,21 @@ public class LevelScreen extends AppCompatActivity {
         //toast.show();
 
         //trying dialog instead
+
+        Model testModel = new Model("Level1.txt",this);
+
+        boolean isMoving;
+
+        do {
+            try {
+                System.in.read(); //waits for user to press enter
+            } catch (IOException e) {}
+            testModel.clear();
+            isMoving = !testModel.update();
+            testModel.printBoard();
+        } while (testModel.getGameState() == 0);
+
+        System.out.println();
 
 
 
