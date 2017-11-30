@@ -11,7 +11,7 @@ import android.support.design.widget.Snackbar;
 import android.widget.Toast;
 
 
-public class LevelScreen extends AppCompatActivity extends DialogFragment{
+public class LevelScreen extends AppCompatActivity {
 
     public ImageButton bStart;
     public ImageButton bEnd;

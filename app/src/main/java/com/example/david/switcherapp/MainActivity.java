@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendMessage(View view)
     {
-        Intent intent = new Intent(this, LevelScreen.class);
+        Intent intent = new Intent(this, IntroSlides.class);
         startActivity(intent);
     }
 }

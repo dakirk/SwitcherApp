@@ -44,15 +44,20 @@
         app:layout_constraintStart_toStartOf="parent"
         android:background="@mipmap/level_select"/>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="320dp"
-        android:layout_height="240dp"
-        android:layout_marginTop="32dp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="196dp"
+        android:fontFamily="@font/luminari"
+        android:text="@string/titel"
+        android:textColor="@android:color/background_light"
+        android:textSize="36sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/title"
-        android:contentDescription="@string/Button"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

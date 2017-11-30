@@ -6,4 +6,22 @@
     <string name="start">START</string>
     <string name="Button"> </string>
     <string name="Dont_lose">Don\'t let an orc reach you!</string>
+    <string name="introduction">Introduction</string>
+    <string name="you">This is you: \nA WIZARD</string>
+    <string name="orc">This is an orc: \nIt wants to eat you.</string>
+    <string name="wall">This is a wall: \nIt stops orcs.</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="gotIt">GOT IT</string>
+    <string name="titel">I SMITE YOU!</string>
+    <string name="power">Your Powers</string>
+    <string name="desc">You have the crystal of teleportation. \nYou can move inanimate \nobjects like walls.\nYou cannot move
+       living \nbeings like yourself and orcs.</string>
+    <string name="tapWall">Tap on wall:</string>
+    <string name="tapGrass">Tap on the grass:</string>
+    <string name="Swap">TELEPORT!</string>
+    <string name="stuck">Orc is stuck behind wall.</string>
+    <string name="End">Game Ends!</string>
+    <string name="Win">All orcs stuck behind wall.</string>
+    <string name="Lose">Orcs eat you.</string>
 </resources>
