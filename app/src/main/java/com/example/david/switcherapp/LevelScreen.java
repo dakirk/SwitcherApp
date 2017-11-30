@@ -2,6 +2,7 @@ package com.example.david.switcherapp;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.provider.ContactsContract;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,21 +31,21 @@ public class LevelScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_screen);
-        view = new View(this);
+        view = findViewById(android.R.id.content);
 
         Model testModel = new Model("Level1.txt",this);
 
         boolean isMoving;
 
         testModel.printBoard();
-        do {
+       // do {
             try {
                 System.in.read(); //waits for user to press enter
             } catch (IOException e) {}
             testModel.clear();
             isMoving = !testModel.update();
-            testModel.printBoard();
-        } while (testModel.getGameState() == 0);
+       //     testModel.printBoard();
+       // } while (testModel.getGameState() == 0);
 
         System.out.println();
 
@@ -99,23 +100,33 @@ public class LevelScreen extends AppCompatActivity {
     {
         if(i!=-1&&j!=-1) {
             String str = "";
-            str = str + (char) i + (char) j;
+            str = str + String.valueOf((int)i) + String.valueOf((int)j);
+            System.out.println(str);
             ImageButton b = view.findViewWithTag(str);
-            switch (sprite) {
-                case 'o':
-                    b.setImageResource(R.mipmap.orc);
-                    break;
-                case 'W':
-                    b.setImageResource(R.mipmap.wall);
-                    break;
-                case 'P':
-                    b.setImageResource(R.mipmap.wizard);
-                    break;
-                default:
-                    System.out.println("Button not found.");
+            System.out.println(view.findViewWithTag("00"));
+            if(b!=null){
+                System.out.println("Inside if");
+                switch (sprite) {
+                    case 'o':
+                        b.setImageResource(R.mipmap.orc);
+                        break;
+                    case 'W':
+                        b.setImageResource(R.mipmap.wall);
+                        break;
+                    case 'P':
+                        b.setImageResource(R.mipmap.wizard);
+                        break;
+                    default:
+                        System.out.println("Button not found.");
+                }
+            }
+            else if(b == null)
+            {
+                    System.out.println("Button Not Found");
+            }
             }
         }
 
 
     }
-}
+

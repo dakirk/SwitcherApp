@@ -268,17 +268,19 @@ public class Model {
 	}
 
 	public void printBoard() {
-		int i;
+		/*int i;
 		for (i = 0; i < size; i++) {
 			for (int j = 0; j < size; j++) {
 				System.out.print(" " + viewArray[i][j]);
 			}
 			System.out.println();
-		}
+		}*/
 		for(GameObject obj:objList)
 		{
 			char type = obj.getType();
 			CartPoint coord = obj.getLocation();
+			System.out.println("Type:" + type);
+			System.out.println("coord:"+coord);
 			LevelScreen.InitializeButton(type,coord.x, coord.y);
 		}
 		System.out.println();
