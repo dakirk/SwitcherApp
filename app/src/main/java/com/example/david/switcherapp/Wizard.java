@@ -27,7 +27,7 @@ public class Wizard extends GameObject{
 		System.out.println("Wizard constructed");
 	}
 
-	/** 
+	/**
 	 * Performs a swap, but is smarter than that in GameObject. Excludes objects with the types included in the string excludeChars.
 	 * @param p1 first point to swap
 	 * @param p2 second point to swap
@@ -75,7 +75,7 @@ public class Wizard extends GameObject{
 		return flag;
 	}
 
-	/** 
+	/**
 	 * Updates this Wizard to see if alive or dead
 	 * @return true if state changed, false otherwise
 	 */

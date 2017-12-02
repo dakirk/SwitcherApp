@@ -6,7 +6,7 @@ public class Wall extends GameObject {
 
 	/**
 	 * Constructor
-	 * @param inLoc	the location the wall will be placed at
+	 * @param inLoc	The location the wall will be placed at
 	 */
 	public Wall(CartPoint inLoc) {
 		super(inLoc, numWalls, 'W'); //W is a solid wall, w is a broken wall
@@ -29,6 +29,8 @@ public class Wall extends GameObject {
 	public void smash() { //will be called by OrcBrute to smash down wall
 		state = 'd';
 		displayCode = 'w';
+		location.x = -1;
+		location.y = -1;
 	}
 
 	/**

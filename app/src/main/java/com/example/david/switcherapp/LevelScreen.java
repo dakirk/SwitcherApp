@@ -33,7 +33,7 @@ public class LevelScreen extends AppCompatActivity {
         setContentView(R.layout.activity_level_screen);
         view = findViewById(android.R.id.content);
 
-        Model testModel = new Model("Level1.txt",this);
+        Model testModel = new Model("Level5.txt",this);
 
         boolean isMoving;
 
@@ -110,8 +110,20 @@ public class LevelScreen extends AppCompatActivity {
                     case 'o':
                         b.setImageResource(R.mipmap.orc);
                         break;
+                    case 'b':
+                        b.setImageResource(R.mipmap.orc_brute);
+                        break;
+                    case 's':
+                        b.setImageResource(R.mipmap.orc_smart);
+                        break;
+                    case 'n':
+                        b.setImageResource(R.mipmap.orc_wary);
+                        break;
                     case 'W':
                         b.setImageResource(R.mipmap.wall);
+                        break;
+                    case 'h':
+                        b.setImageResource(R.mipmap.hole);
                         break;
                     case 'P':
                         b.setImageResource(R.mipmap.wizard);

@@ -1,8 +1,6 @@
-package com.example.david.switcherapp;
+package com.example.david.switcherapp;//NOTE: for smart Orc variants, try to implement this algorithm: http://gregtrowbridge.com/a-basic-pathfinding-algorithm/
 
-//NOTE: for smart Orc variants, try to implement this algorithm: http://gregtrowbridge.com/a-basic-pathfinding-algorithm/
-
-public class Orc extends GameObject {
+public class Orc extends GameObject implements Mover {
 
 	protected double speed; // <-- might not use this
 	protected CartPoint destination;
@@ -23,7 +21,7 @@ public class Orc extends GameObject {
 
 	/**
 	 * Constructor
-	 * @param inLoc	location of Orc at creation
+	 * @param inLoc	Location of Orc at creation
 	 * @param inModel Model that the Orc will be placed into
 	 */
 	public Orc(CartPoint inLoc, Model inModel) {
@@ -69,11 +67,10 @@ public class Orc extends GameObject {
 				}
 
 				if (obstacle != null) { //if there is an obstacle
-					if (obstacle.getType() == 'o' ||
-						obstacle.getType() == 'O' ||
-						obstacle.getType() == 'W' ||
-						obstacle.getType() == 's' ||
-						obstacle.getType() == 'S') {
+
+					String blockObjs = "sobW"; //object types that will block the brute
+
+					if (blockObjs.indexOf(obstacle.getType()) != -1) {
 						state = 'b';
 						System.out.println("Orc " + id + " has hit an obstacle");
 						returnVal = true;
@@ -87,7 +84,10 @@ public class Orc extends GameObject {
 				}
 				break;
 			
-			case 'b': 
+			case 'b': //attempt to move again
+				startMoving(destination);
+				break; 
+			case 'd':
 				//System.out.println("Orc " + id + " is blocked!");
 				break;
 			default: 
@@ -116,7 +116,7 @@ public class Orc extends GameObject {
 
 	/** 
 	 * Starts the orc moving--in practice, this will only ever be used to target Wizard
-	 * @param dest the destination of the Orc (usually a Wizard)
+	 * @param dest The destination of the Orc (usually a Wizard)
 	 */
 	public void startMoving(CartPoint dest) {
 		setupDestination(dest);
@@ -134,10 +134,16 @@ public class Orc extends GameObject {
 		System.out.println("Orc " + id + " stopped");
 	}
 
+	public void die() {
+		System.out.println("Orc " + id + " has died");
+		state = 'd'; //change state to "dead"
+		location.x = -1; //teleport to (-1, -1)
+		location.y = -1;
+	}
+
 	/**
 	 * Overrides toString method
 	 * @return GameObject's toString concatenated with Orc's status (stopped, blocked, or moving, and eventually will also include dead)
-	 * @see GameObject
 	 */
 	@Override
 	public String toString() {
@@ -173,9 +179,9 @@ public class Orc extends GameObject {
 
 	/**
 	 * Gets the GameObject at the location given by the input x and y coordinates, as an alternative to the method provided by Model
-	 * @param x the x-coordinate to be checked
-	 * @param y the y-coordinate to be checked
-	 * @return the GameObject at the given location, or null if nothing is there
+	 * @param x The x-coordinate to be checked
+	 * @param y The y-coordinate to be checked
+	 * @return The GameObject at the given location, or null if nothing is there
 	 */
 	protected GameObject getObjAtPos(double x, double y) {
 		return orcVision.getGameObject(new CartPoint(x, y));
@@ -193,9 +199,9 @@ public class Orc extends GameObject {
 
 	/**
 	 * Calculates delta (direction to move in), used every tick. Speed part is not reallly used, it's a holdover from PA3
-	 * @return the CartPoint representing the required "delta" to move directly to the destination, ignoring the grid
+	 * @return The CartPoint representing the required "delta" to move directly to the destination, ignoring the grid
 	 */
-	private CartPoint calcDelta() {
+	protected CartPoint calcDelta() {
 		CartPoint deltaPoint = destination.subtract(location);
 		double unitSpeed = speed/(CartPoint.cartDistance(destination, location));
 		return deltaPoint.multiply(unitSpeed);

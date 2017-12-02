@@ -13,11 +13,12 @@ public class Model {
 
 	private int size;
 	private int gameState = 0; //0 for in progress, 1 for win, -1 for loss
-	private char[][] viewArray;
+	//private char[][] viewArray;
 	private ArrayList<GameObject> objList = new ArrayList<GameObject>();
 	private ArrayList<Orc> orcList = new ArrayList<Orc>(); //list of orcs, for sweeping orc operations
 	private Wizard protagonist; //only one wizard per level, to avoid confusion
 	private String hint;
+	private GameWorld world;
 	private Context context;
 //Setup
 
@@ -28,7 +29,7 @@ public class Model {
 	public Model(String filename, Context mContext) {
 		//eventually, will have it read a file to get object locations, but for now I'll hardcode them
 		size = 9;
-		viewArray = new char[size][size];
+		world = new GameWorld();
 		clear();
 		context = mContext;
 
@@ -87,16 +88,35 @@ public class Model {
 						switch (words[0]) { //check if any objects available
 							case "o":
 								objList.add(new Orc(new CartPoint(xCoord, yCoord), this));
-								System.out.println("Creating Orc");
-								//LevelScreen.InitializeButton(xCoord,yCoord,"o");
+								System.out.println("Creating orc");
+								break;
+							case "s":
+								objList.add(new OrcSmart(new CartPoint(xCoord, yCoord), this));
+								System.out.println("Creating smart orc");
+								break;
+							case "n":
+								objList.add(new OrcWary(new CartPoint(xCoord, yCoord), this));
+								System.out.println("Creating wary orc");
+								break;
+							case "b":
+								objList.add(new OrcBrute(new CartPoint(xCoord, yCoord), this));
+								System.out.println("Creating orc brute");
 								break;
 							case "W":
 								objList.add(new Wall(new CartPoint(xCoord, yCoord)));
-								System.out.println("Creating Wall");
+								System.out.println("Creating wall");
+								break;
+							case "H":
+								objList.add(new Hole(new CartPoint(xCoord, yCoord), this, true));
+								System.out.println("Creating covered hole");
+								break;
+							case "h":
+								objList.add(new Hole(new CartPoint(xCoord, yCoord), this, false));
+								System.out.println("Creating uncovered hole");
 								break;
 							case "P":
 								objList.add(new Wizard(new CartPoint(xCoord, yCoord), this));
-								System.out.println("Creating Wizard");
+								System.out.println("Creating wizard");
 								break;
 							default:
 								System.out.println("Invalid object type");
@@ -127,9 +147,9 @@ public class Model {
 					protagonist = (Wizard)obj; //sets protagonist
 					break;
 				case 'o':
-				case 'O':
+				case 'b':
 				case 's':
-				case 'S': {
+				case 'n': {
 					orcList.add((Orc)obj);
 				}
 			}
@@ -137,7 +157,11 @@ public class Model {
 
 		if (isViable) { //if level is viable
 			for (Orc enemy : orcList) {
-				enemy.startMoving(protagonist.getLocation());
+				if (enemy.getType() == 's') {
+					((OrcSmart)enemy).startMoving(protagonist.getLocation()); //make sure orc is cast properly
+				} else {
+					enemy.startMoving(protagonist.getLocation()); //make all orcs target player
+				}
 			}
 		}
 
@@ -182,7 +206,11 @@ public class Model {
 					returnVal = true;
 				}
 
-				viewArray[(int)obj.getLocation().x][(int)obj.getLocation().y] = obj.getType();
+				if (obj.getState() != 'd') { //only add to board if alive (dead orcs take up -1, -1 anyway, so would cause an error)
+					//viewArray[(int)obj.getLocation().x][(int)obj.getLocation().y] = obj.getType();
+					redraw();
+					//world.setView((int)obj.getLocation().x, (int)obj.getLocation().y, obj.getType());
+				}
 
 			}
 
@@ -206,7 +234,7 @@ public class Model {
 	public void clear() {
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < size; j++) {
-				viewArray[i][j] = '.';
+				world.setView(i, j, '.');
 			}
 		}
 	}
@@ -249,6 +277,8 @@ public class Model {
 		return hint;
 	}
 
+	public GameWorld getWorld() { return world; }
+
 //Setters
 
 	//adds a new GameObject to the list
@@ -265,6 +295,17 @@ public class Model {
 			System.out.println(obj);
 		}
 		System.out.println("...");
+	}
+
+	/**
+	 * Redraws the world to reflect latest updates
+	 */
+	public void redraw() {
+		clear();
+		for (GameObject obj : objList) {
+			if (obj.getState() != 'd')
+				world.setView((int)obj.getLocation().x, (int)obj.getLocation().y, obj.getType());
+		}
 	}
 
 	public void printBoard() {
