@@ -1,21 +1,38 @@
 package com.example.david.switcherapp;
 
+/**
+ * This is a more specialized form of Orc, which has the ability to smash down walls. Besides this,
+ * it is behaviorally identical to the basic Orc.
+ *
+ * @author David Kirk
+ */
 public class OrcBrute extends Orc implements Mover {
 
+	/**
+	 * Simple constructor, generates a default CartPoint as its location
+	 * @param inModel Model that the OrcBrute will be placed into
+	 */
 	public OrcBrute(Model inModel) {
 		super(inModel);
 		displayCode = 'b';
 	}
 
+	/**
+	 * Constructor
+	 * @param inLoc	Location of OrcBrute at creation
+	 * @param inModel Model that the OrcBrute will be placed into
+	 */
 	public OrcBrute(CartPoint inLoc, Model inModel) {
 		super(inLoc, inModel);
 		displayCode = 'b';
 	}
 
 	/**
-	 * Updates the OrcBrute's status depending on its circumstances. Determines whether brute is moving, blocked, stopped, or dead.
+	 * Updates the OrcBrute's status depending on its circumstances. Determines whether brute is
+	 * moving, blocked, stopped, or dead, and tells the brute when to destroy a wall.
 	 * @return true if state changed, false otherwise
 	 */
+	@Override
 	public boolean update() {
 
 		boolean returnVal = false;

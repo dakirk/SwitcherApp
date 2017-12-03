@@ -1,47 +1,83 @@
 package com.example.david.switcherapp;//Basic Cart_Point function, eliminates Cart_Vector for simplicity
 
+/**
+ * This is a very simple representation of a cartesian coordinate. It can technically represent any
+ * point on the grid, though for this game only whole numbers are needed. It also provides
+ * methods for simple mathematical operations and distance calculation.
+ *
+ * @author David Kirk
+ */
 public class CartPoint {
 
 	public double x;
 	public double y;
 
-	//default constructor
+	/**
+	 * Default constructor. Creates the point at (0, 0).
+	 */
 	public CartPoint() {
 		x = 0;
 		y = 0;
 	}
 
-	//constructor to set coords
+	/**
+	 * Constructor for a specific coordinate
+	 * @param xCoord the x-coordinate of the new CartPoint
+	 * @param yCoord the y-coordinate of the new CartPoint
+	 */
 	public CartPoint(double xCoord, double yCoord) {
 		x = xCoord;
 		y = yCoord;
 	}
 
-	//addition (adds coords of both points)
+	/**
+	 * Adds this point and another point's coordinates individually (x1+x2, y1+y2)
+	 * @param otherPoint the other point to be added to
+	 * @return the sum of this point and the other point
+	 */
 	public CartPoint add(CartPoint otherPoint) {
 		CartPoint returnPoint = new CartPoint((x + otherPoint.x), (y + otherPoint.y));
 		return returnPoint;
 	}
 
-	//subtraction (subtracts coords of both points)
+	/**
+	 * Subtracts another point from this point's coordinates (x1-x2, y1-y2)
+	 * @param otherPoint the point to be subtracted from this point
+	 * @return the difference between the two points
+	 */
 	public CartPoint subtract(CartPoint otherPoint) {
 		CartPoint returnPoint = new CartPoint((x - otherPoint.x), (y - otherPoint.y));
 		return returnPoint;
 	}
 
-	//multiply by coefficient 
+	/**
+	 * Multiplies this point's coordinates by a constant (a*x, a*y)
+	 * @param coefficient the coefficient to be multiplied by this point's coordinates
+	 * @return the product of this point and the coefficient
+	 */
 	public CartPoint multiply(double coefficient) {
 		CartPoint returnPoint = new CartPoint((x*coefficient), (y*coefficient));
 		return returnPoint;
 	}
 
-	//divide by coefficient
+	/**
+	 * Divides this point's coordinates by a constant (x/a, y/a)
+	 * @param coefficient the coefficient to be divided by
+	 * @return the quotient of this point and the coefficient
+	 */
 	public CartPoint divide(double coefficient) {
 		CartPoint returnPoint = new CartPoint((x/coefficient), (y/coefficient));
 		return returnPoint;
 	}
 
-	//more or less copied from: http://www.geeksforgeeks.org/overriding-equals-method-in-java/
+	/**
+	 * Overrides Object's equals method, from when Model was going to use HashMaps. No longer used,
+	 * but nice to have. Copied with modifications from:
+	 * http://www.geeksforgeeks.org/overriding-equals-method-in-java/
+	 * @param o the object being compared to this one
+	 * @return true if both are the same, false otherwise
+	 */
+	@Override
 	public boolean equals(Object o) {
 
 		if(o == this) { //same instance
@@ -62,20 +98,34 @@ public class CartPoint {
 		
 	}
 
-	//assuming coords are always positive
-	//taken from: https://stackoverflow.com/questions/9135759/java-hashcode-for-a-point-class
+	/**
+	 * Overrides the hashCode method, from when I planned on using HashMaps in Model. No longer
+	 * used, but nice to have. It always assumes coordinates are positive. Copied from:
+	 * https://stackoverflow.com/questions/9135759/java-hashcode-for-a-point-class
+	 * @return
+	 */
+	@Override
 	public int hashCode() {
 	    int result = (int)x;
 	    result = 31 * result + (int)y;
 	    return result;
 	}
 
-	//returns point coords
+	/**
+	 * Overrides Object's toString method to make a string with the CartPoint's coordinates.
+	 * @return coordinates as a string
+	 */
+	@Override
 	public String toString() {
 		return "(" + x + ", " + y + ")";
 	}
 
-	//returns numerical distance between two given points
+	/**
+	 * Returns the numberical distance between two given points
+	 * @param point1 the first point
+	 * @param point2 the second point
+	 * @return the distance between the two points, as a double
+	 */
 	static double cartDistance(CartPoint point1, CartPoint point2) {
 		return Math.sqrt(Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2));
 	}

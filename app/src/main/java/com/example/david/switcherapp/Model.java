@@ -9,6 +9,14 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * This class holds all GameObjects, as well as the GameWorld used for pathfinding. It also provides
+ * a method to load levels from text files, and can automatically generate new GameObjects at a
+ * given location with the correct parameters. This is necessary because all GameObjects that sense
+ * their surroundings (Orcs, Wizards, traps, etc.) need to have a way to see what is around them.
+ *
+ * @author David Kirk
+ */
 public class Model {
 
 	private int size;
@@ -23,7 +31,8 @@ public class Model {
 //Setup
 
 	/**
-	 * Constructor
+	 * This constructor takes a level name and loads it, populates the lists objList and orcList,
+	 * initializes the objects, and populates world.
 	 * @param filename name of the level file to be loaded
 	 */
 	public Model(String filename, Context mContext) {
@@ -264,6 +273,13 @@ public class Model {
 	}
 
 	//searches for an Orc by location
+
+	/**
+	 * Searches the orcList for an orc at a given location. Useful when there are multiple objects
+	 * on the same location, as it allows the user to pick the Orc every time.
+	 * @param orcLocation the location of the Orc
+	 * @return the Orc object if there is one, or null otherwise
+	 */
 	public Orc getOrc(CartPoint orcLocation) {
 		for (Orc orc : orcList) {
 			if (orc.getLocation().equals(orcLocation)) {
@@ -273,6 +289,10 @@ public class Model {
 		return null;
 	}
 
+	/**
+	 * Getter for the hint provided at the beginning of each level.
+	 * @return the hint as a string
+	 */
 	public String getHint() {
 		return hint;
 	}
@@ -283,12 +303,21 @@ public class Model {
 
 	//adds a new GameObject to the list
 	//for the sake of simplicity, the wizard must always be at the end of the list
+
+	/**
+	 * Adds a new GameObject to the list. Used by the loadLevel method. Wizard must always be at the
+	 * end of the list, or else things could behave unexpectedly.
+	 * @param object
+	 */
 	public void addObject(GameObject object) {
 		objList.add(object);
 	}
 
 //Printing
 
+	/**
+	 * Prints the status of all GameObjects directly to the console, using their toString methods.
+	 */
 	public void printAll() {
 		System.out.println("...");
 		for (GameObject obj : objList) {
@@ -308,6 +337,9 @@ public class Model {
 		}
 	}
 
+	/**
+	 * Prints all GameObjects to the button grid onscreen
+	 */
 	public void printBoard() {
 		/*int i;
 		for (i = 0; i < size; i++) {

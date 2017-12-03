@@ -1,5 +1,12 @@
 package com.example.david.switcherapp;//NOTE: for smart Orc variants, try to implement this algorithm: http://gregtrowbridge.com/a-basic-pathfinding-algorithm/
 
+/**
+ * This is the most basic form of enemy in the game. It should be automatically set to target the
+ * player at the beginning of the level, and once set, it will move in straight lines towards them
+ * until it hits a wall or trap. It is the easiest orc to defend against, and has no special
+ * abilities. All other orcs inherit from it.
+ * @author David Kirk
+ */
 public class Orc extends GameObject implements Mover {
 
 	protected double speed; // <-- might not use this
@@ -36,6 +43,7 @@ public class Orc extends GameObject implements Mover {
 	 * Updates the Orc's status depending on its circumstances. Determines whether orc is moving, blocked, stopped, or dead.
 	 * @return true if state changed, false otherwise
 	 */
+	@Override
 	public boolean update() {
 
 		boolean returnVal = false;
@@ -134,6 +142,10 @@ public class Orc extends GameObject implements Mover {
 		System.out.println("Orc " + id + " stopped");
 	}
 
+	/**
+	 * Function to kill the Orc. This changes the orc's state to 'd' for dead and moves it to an
+	 * invalid location, (-1, -1).
+	 */
 	public void die() {
 		System.out.println("Orc " + id + " has died");
 		state = 'd'; //change state to "dead"

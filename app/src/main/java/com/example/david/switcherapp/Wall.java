@@ -1,5 +1,10 @@
 package com.example.david.switcherapp;
 
+/**
+ * Basic obstacle to block Orcs. Can be destroyed by the OrcBrute.
+ *
+ * @author David Kirk
+ */
 public class Wall extends GameObject {
 
 	private static int numWalls = 1;
@@ -24,7 +29,7 @@ public class Wall extends GameObject {
 	}
 
 	/**
-	 * Sets wall's state to destroyed. Will be use by OrcBrute.
+	 * Sets wall's state to destroyed. Used by OrcBrute.
 	 */
 	public void smash() { //will be called by OrcBrute to smash down wall
 		state = 'd';

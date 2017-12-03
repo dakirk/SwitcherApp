@@ -1,10 +1,22 @@
 package com.example.david.switcherapp;
 
+/**
+ * This is a very basic trap. It is indestructible, immovable (as defined in Wizard's magicSwap
+ * method), and currently has an infinite capacity.
+ *
+ * @see Wizard#magicSwap(CartPoint, CartPoint)
+ * @author David Kirk
+ */
 public class Hole extends GameObject {
 
 	private static int numHoles;
 	private Model gameModel;
 
+	/**
+	 * Basic constructor
+	 * @param inLoc the location of the Hole
+	 * @param inModel the Model that holds the Hole
+	 */
 	public Hole(CartPoint inLoc, Model inModel) {
 		super(inLoc, ++numHoles, 'H');
 		state = 'c'; //c for covered
@@ -12,6 +24,12 @@ public class Hole extends GameObject {
 		System.out.println("Hole constructed");
 	}
 
+	/**
+	 * More specific constructor for controlling initial Hole state
+	 * @param inLoc the location of the Hole
+	 * @param inModel the Model that holds the Hole
+	 * @param isCovered whether the Hole starts out covered or uncovered
+	 */
 	public Hole(CartPoint inLoc, Model inModel, boolean isCovered) {
 		super(inLoc);
 		id = ++numHoles;
@@ -25,6 +43,10 @@ public class Hole extends GameObject {
 		}
 	}
 
+	/**
+	 * Updates Hole's state to detect if an Orc has fallen in
+	 * @return true if an Orc fell in, false otherwise
+	 */
 	public boolean update() {
 
 		boolean returnVal = false;
@@ -44,7 +66,7 @@ public class Hole extends GameObject {
 
 	/**
 	 * Sums up object's state as a string
-	 * @return GameObject's toString concatenated with Wall's status (intact or destroyed)
+	 * @return GameObject's toString concatenated with Hole's status (covered or uncovered)
 	 * @see GameObject
 	 */
 	@Override

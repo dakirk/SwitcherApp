@@ -1,11 +1,22 @@
 package com.example.david.switcherapp;
 
+/**
+ * This class holds a minimal representation of the world as an array matrix, with each
+ * GameObject represented as a single character. It also implements the TileBasedMap template
+ * in order to maintain compatibility with the A* pathfinding code.
+ *
+ * @author David Kirk
+ */
 public class GameWorld implements TileBasedMap {
 
 	private char[][] viewMat;
 	private boolean[][] visitedMat;
 	private int size;
 
+	/**
+	 * Default constructor for GameWorld. It initializes all matrices to 9x9, since that is the size
+	 * of the button grid.
+	 */
 	public GameWorld() {
 		size = 9;
 		viewMat = new char[size][size];
@@ -34,18 +45,39 @@ public class GameWorld implements TileBasedMap {
 		return size;
 	}
 
+	/**
+	 * Getter for the view matrix
+	 * @param x x-coordinate of the target
+	 * @param y y-coordinate of the target
+	 * @return character at the given x and y coordinates
+	 */
 	public char getView(int x, int y) {
 		return viewMat[x][y];
 	}
 
+	/**
+	 * Getter for the visited matrix
+	 * @param x x-coordinate of the target
+	 * @param y y-coordinate of the target
+	 * @return boolean at the given x and y coordinates
+	 */
 	public boolean getVisited(int x, int y) {
 		return visitedMat[x][y];
 	}
-	
+
+	/**
+	 * Sets the character in the view matrix at the targeted position
+	 * @param x x-coordinate of the target
+	 * @param y y-coordinate of the target
+	 * @param objType character representing the type of object at the targeted position
+	 */
 	public void setView(int x, int y, char objType) {
 		viewMat[x][y] = objType;
 	}
 
+	/**
+	 * Clears the visited matrix to false
+	 */
 	public void clearVisited() {
 		for (int i = 0; i < getWidthInTiles(); i++) {
 			for (int j = 0; j < getHeightInTiles(); j++) {
@@ -67,7 +99,7 @@ public class GameWorld implements TileBasedMap {
 	
 	/**
 	 * Check if the given location is blocked, i.e. blocks movement of 
-	 * the supplied mover.
+	 * the supplied mover. Behaves differently depending on the type of mover that uses it
 	 * 
 	 * @param mover The mover that is potentially moving through the specified
 	 * tile.

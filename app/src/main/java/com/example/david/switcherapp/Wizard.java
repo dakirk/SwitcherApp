@@ -1,5 +1,12 @@
 package com.example.david.switcherapp;
 
+/**
+ * GameObject representing the player character. Cannot move, but has the ability to move certain
+ * other objects, namely Orcs and traps, except for holes. If the Wizard dies, then the game is
+ * over.
+ *
+ * @author David Kirk
+ */
 public class Wizard extends GameObject{
 
 	private static Model wizardVision;
