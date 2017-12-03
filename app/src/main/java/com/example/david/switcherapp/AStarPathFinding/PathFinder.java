@@ -1,4 +1,4 @@
-package com.example.david.switcherapp;
+package com.example.david.switcherapp.AStarPathFinding;
 
 /**
  * A description of an implementation that can find a path from one 

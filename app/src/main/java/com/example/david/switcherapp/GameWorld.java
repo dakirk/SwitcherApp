@@ -1,5 +1,8 @@
 package com.example.david.switcherapp;
 
+import com.example.david.switcherapp.AStarPathFinding.Mover;
+import com.example.david.switcherapp.AStarPathFinding.TileBasedMap;
+
 /**
  * This class holds a minimal representation of the world as an array matrix, with each
  * GameObject represented as a single character. It also implements the TileBasedMap template

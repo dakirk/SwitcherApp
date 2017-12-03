@@ -1,4 +1,4 @@
-package com.example.david.switcherapp;
+package com.example.david.switcherapp.AStarPathFinding;
 
 /**
  * The description of a class providing a cost for a given tile based

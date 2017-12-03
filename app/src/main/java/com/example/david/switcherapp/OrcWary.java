@@ -1,5 +1,7 @@
 package com.example.david.switcherapp;
 
+import com.example.david.switcherapp.AStarPathFinding.Mover;
+
 /**
  * This Orc inherits its pathfinding from OrcSmart, and therefore has the same ability to avoid
  * obstacles. However, this orc has the ability to avoid conspicuous traps (uncovered holes and

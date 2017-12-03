@@ -1,4 +1,4 @@
-package com.example.david.switcherapp;
+package com.example.david.switcherapp.AStarPathFinding;
 
 /**
  * The description for the data we're pathfinding over. This provides the contract

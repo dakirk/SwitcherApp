@@ -1,3 +1,3 @@
 # SwitcherApp
 Switcher Android game
-Hopefully you guys can use this now?
+A* Pathfinding code source: http://www.cokeandcode.com/main/tutorials/path-finding/

@@ -1,4 +1,4 @@
-package com.example.david.switcherapp;
+package com.example.david.switcherapp.AStarPathFinding;
 
 /**
  * A heuristic that uses the tile that is closest to the target

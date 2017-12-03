@@ -1,10 +1,13 @@
 package com.example.david.switcherapp;//NOTE: for smart Orc variants, try to implement this algorithm: http://gregtrowbridge.com/a-basic-pathfinding-algorithm/
 
+import com.example.david.switcherapp.AStarPathFinding.Mover;
+
 /**
  * This is the most basic form of enemy in the game. It should be automatically set to target the
  * player at the beginning of the level, and once set, it will move in straight lines towards them
  * until it hits a wall or trap. It is the easiest orc to defend against, and has no special
  * abilities. All other orcs inherit from it.
+ *
  * @author David Kirk
  */
 public class Orc extends GameObject implements Mover {

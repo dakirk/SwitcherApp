@@ -1,4 +1,4 @@
-package com.example.david.switcherapp;
+package com.example.david.switcherapp.AStarPathFinding;
 
 /**
  * A tagging interface for an object representing the entity in the game that

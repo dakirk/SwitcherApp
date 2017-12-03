@@ -1,5 +1,7 @@
 package com.example.david.switcherapp;
 
+import com.example.david.switcherapp.AStarPathFinding.Mover;
+
 /**
  * This is a more specialized form of Orc, which has the ability to smash down walls. Besides this,
  * it is behaviorally identical to the basic Orc.

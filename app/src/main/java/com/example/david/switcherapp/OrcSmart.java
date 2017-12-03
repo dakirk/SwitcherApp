@@ -1,5 +1,10 @@
 package com.example.david.switcherapp;
 
+import com.example.david.switcherapp.AStarPathFinding.AStarPathFinder;
+import com.example.david.switcherapp.AStarPathFinding.Mover;
+import com.example.david.switcherapp.AStarPathFinding.Path;
+import com.example.david.switcherapp.AStarPathFinding.PathFinder;
+
 /**
  * This Orc uses the A* pathfinding algorithm to avoid obstacles dynamically. It will only be
  * blocked if it is surrounded on all sides and there is no way to get to its target. However, it
