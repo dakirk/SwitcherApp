@@ -42,9 +42,13 @@ public class Wizard extends GameObject{
 	 */
 	public static boolean magicSwap(CartPoint p1, CartPoint p2) {
 
+		System.out.println("CartPoint p1" + p1);
+		System.out.println("CartPoint p2"+p2);
 		GameObject obj1 = wizardVision.getGameObject(p1);
+		System.out.println(obj1);
 		GameObject obj2 = wizardVision.getGameObject(p2);
-		String excludeChars = "wWP"; //list of unteleportable objects
+		System.out.println(obj2);
+		String excludeChars = "hwWP"; //list of unteleportable objects
 		boolean flag = true;
 
 		if(obj1 != null && obj2 != null) { //if both objects exist
@@ -57,7 +61,7 @@ public class Wizard extends GameObject{
 			}
 
 		} else if (obj1 == null && obj2 != null) { //if first object doesn't exist
-			if (excludeChars.indexOf(obj2.getType()) != -1) {
+			if (excludeChars.indexOf(obj2.getType()) == -1) {
 				obj1 = obj2;
 				obj2 = null;
 				flag = true;
@@ -66,7 +70,8 @@ public class Wizard extends GameObject{
 				flag = false;
 			}
 		} else if (obj1 != null && obj2 == null) { //if second object doesn't exist
-			if (excludeChars.indexOf(obj1.getType()) != -1) {
+			System.out.println("excludeChars.indexOf(obj1.getType())"+excludeChars.indexOf(obj1.getType()));
+			if (excludeChars.indexOf(obj1.getType()) == -1) {
 				obj2 = obj1;
 				obj1 = null;
 				flag = true;

@@ -93,6 +93,7 @@ public class Model {
 						//get coords for object (no error checking)
 						double xCoord = Double.parseDouble(words[1]);
 						double yCoord = Double.parseDouble(words[2]);
+						//System.out.println("xCoord: "+xCoord+"yCoord: "+yCoord);
 
 						switch (words[0]) { //check if any objects available
 							case "o":
@@ -244,6 +245,7 @@ public class Model {
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < size; j++) {
 				world.setView(i, j, '.');
+				LevelScreen.InitializeButton('g',i,j);
 			}
 		}
 	}
@@ -265,7 +267,10 @@ public class Model {
 	 */
 	public GameObject getGameObject(CartPoint objLocation) {
 		for (GameObject obj : objList) {
-			if (obj.getLocation().equals(objLocation)) {
+			CartPoint current = obj.getLocation();
+			//System.out.println("current location: "+current);
+			if (current.x==objLocation.x && current.y==objLocation.y) {
+				System.out.println("In if getGameObject");
 				return obj;
 			}
 		}
@@ -352,8 +357,8 @@ public class Model {
 		{
 			char type = obj.getType();
 			CartPoint coord = obj.getLocation();
-			System.out.println("Type:" + type);
-			System.out.println("coord:"+coord);
+			//System.out.println("Type:" + type);
+			//System.out.println("coord:"+coord);
 			LevelScreen.InitializeButton(type,coord.x, coord.y);
 		}
 		System.out.println();

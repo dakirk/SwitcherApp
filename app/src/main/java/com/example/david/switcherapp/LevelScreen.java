@@ -36,14 +36,14 @@ public class LevelScreen extends AppCompatActivity {
         Model testModel = new Model("Level5.txt",this);
 
         boolean isMoving;
-
+        testModel.redraw();
         testModel.printBoard();
        // do {
-            try {
-                System.in.read(); //waits for user to press enter
-            } catch (IOException e) {}
-            testModel.clear();
-            isMoving = !testModel.update();
+            //try {
+              //  System.in.read(); //waits for user to press enter
+            //} catch (IOException e) {}
+            //testModel.clear();
+           // isMoving = !testModel.update();
        //     testModel.printBoard();
        // } while (testModel.getGameState() == 0);
 
@@ -77,7 +77,7 @@ public class LevelScreen extends AppCompatActivity {
         y = Double.parseDouble(String.valueOf(Btag.charAt(1)));
        // System.out.println("x: " +x+" y:"+y);
         bStartPoint = new CartPoint(x,y);
-        System.out.println(bStartPoint);
+        //System.out.println(bStartPoint);
         i=2;
     }
 
@@ -88,7 +88,7 @@ public class LevelScreen extends AppCompatActivity {
         x = Double.parseDouble(String.valueOf(Btag.charAt(0)));
         y = Double.parseDouble(String.valueOf(Btag.charAt(1)));
         bEndPoint = new CartPoint(x,y);
-        System.out.println(bEndPoint);
+       // System.out.println(bEndPoint);
         i=3;
     }
 
@@ -96,9 +96,9 @@ public class LevelScreen extends AppCompatActivity {
         boolean flag = Wizard.magicSwap(bStartPoint, bEndPoint);
         System.out.println("flag: "+flag);
         if (flag) {
-            swapper = bStart.getBackground();
-            bStart.setBackground(bEnd.getBackground());
-            bEnd.setBackground(swapper);
+            swapper = bStart.getDrawable();
+            bStart.setImageDrawable(bEnd.getDrawable());
+            bEnd.setImageDrawable(swapper);
         }
     }
 
@@ -107,32 +107,35 @@ public class LevelScreen extends AppCompatActivity {
         if(i!=-1&&j!=-1) {
             String str = "";
             str = str + String.valueOf((int)i) + String.valueOf((int)j);
-            System.out.println(str);
+           // System.out.println(str);
             ImageButton b = view.findViewWithTag(str);
             //System.out.println(view.findViewWithTag("00"));
             if(b!=null){
-                System.out.println("Inside if");
+                //System.out.println("Inside if");
                 switch (sprite) {
                     case 'o':
-                        b.setImageResource(R.mipmap.orc);
+                        b.setImageResource(R.drawable.orc);
                         break;
                     case 'b':
-                        b.setImageResource(R.mipmap.orc_brute);
+                        b.setImageResource(R.drawable.orc_brute);
                         break;
                     case 's':
-                        b.setImageResource(R.mipmap.orc_smart);
+                        b.setImageResource(R.drawable.orc_smart);
                         break;
                     case 'n':
-                        b.setImageResource(R.mipmap.orc_wary);
+                        b.setImageResource(R.drawable.orc_wary);
                         break;
                     case 'W':
-                        b.setImageResource(R.mipmap.wall);
+                        b.setImageResource(R.drawable.wall);
                         break;
                     case 'h':
-                        b.setImageResource(R.mipmap.hole);
+                        b.setImageResource(R.drawable.hole);
                         break;
                     case 'P':
-                        b.setImageResource(R.mipmap.wizard);
+                        b.setImageResource(R.drawable.wizard);
+                        break;
+                    case 'g':
+                        b.setImageResource(android.R.color.transparent);
                         break;
                     default:
                         System.out.println("Button not found.");
