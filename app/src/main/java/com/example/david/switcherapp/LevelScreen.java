@@ -70,25 +70,31 @@ public class LevelScreen extends AppCompatActivity {
     public void ButtonFrom(View view)
     {
         bStart = findViewById(view.getId());
+       // System.out.println("bStart: " + bStart);
         String Btag = (String)view.getTag();
-        x = (double)Btag.charAt(0);
-        y = (double)Btag.charAt(1);
+       // System.out.println("BTag: "+Btag);
+        x = Double.parseDouble(String.valueOf(Btag.charAt(0)));
+        y = Double.parseDouble(String.valueOf(Btag.charAt(1)));
+       // System.out.println("x: " +x+" y:"+y);
         bStartPoint = new CartPoint(x,y);
+        System.out.println(bStartPoint);
         i=2;
     }
 
     public void ButtonTo(View v)
     {
         bEnd = findViewById(v.getId());
-        String Btag = (String)view.getTag();
-        x = (double)Btag.charAt(0);
-        y = (double)Btag.charAt(1);
+        String Btag = (String)v.getTag();
+        x = Double.parseDouble(String.valueOf(Btag.charAt(0)));
+        y = Double.parseDouble(String.valueOf(Btag.charAt(1)));
         bEndPoint = new CartPoint(x,y);
+        System.out.println(bEndPoint);
         i=3;
     }
 
     public void Swap() {
         boolean flag = Wizard.magicSwap(bStartPoint, bEndPoint);
+        System.out.println("flag: "+flag);
         if (flag) {
             swapper = bStart.getBackground();
             bStart.setBackground(bEnd.getBackground());
@@ -103,7 +109,7 @@ public class LevelScreen extends AppCompatActivity {
             str = str + String.valueOf((int)i) + String.valueOf((int)j);
             System.out.println(str);
             ImageButton b = view.findViewWithTag(str);
-            System.out.println(view.findViewWithTag("00"));
+            //System.out.println(view.findViewWithTag("00"));
             if(b!=null){
                 System.out.println("Inside if");
                 switch (sprite) {
