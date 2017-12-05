@@ -42,8 +42,8 @@ public class Wizard extends GameObject{
 	 */
 	public static boolean magicSwap(CartPoint p1, CartPoint p2) {
 
-		System.out.println("CartPoint p1" + p1);
-		System.out.println("CartPoint p2"+p2);
+		//System.out.println("CartPoint p1" + p1);
+		//System.out.println("CartPoint p2"+p2);
 		GameObject obj1 = wizardVision.getGameObject(p1);
 		System.out.println(obj1);
 		GameObject obj2 = wizardVision.getGameObject(p2);
@@ -62,8 +62,10 @@ public class Wizard extends GameObject{
 
 		} else if (obj1 == null && obj2 != null) { //if first object doesn't exist
 			if (excludeChars.indexOf(obj2.getType()) == -1) {
-				obj1 = obj2;
-				obj2 = null;
+				obj2.setLocation(p1); //move to other location
+				if (obj2.isOrc()) {
+					((Orc)obj2).pause();
+				}
 				flag = true;
 			} else {
 				System.out.println("Cannot perform swap: Magic doesn't work on walls or wizards!");
@@ -72,8 +74,10 @@ public class Wizard extends GameObject{
 		} else if (obj1 != null && obj2 == null) { //if second object doesn't exist
 			System.out.println("excludeChars.indexOf(obj1.getType())"+excludeChars.indexOf(obj1.getType()));
 			if (excludeChars.indexOf(obj1.getType()) == -1) {
-				obj2 = obj1;
-				obj1 = null;
+				obj1.setLocation(p2); //move to other location
+				if (obj1.isOrc()) { //prevent Orc from moving in next turn
+					((Orc)obj1).pause();
+				}
 				flag = true;
 			} else {
 				System.out.println("Cannot perform swap: Magic doesn't work on walls or wizards!");
@@ -84,6 +88,11 @@ public class Wizard extends GameObject{
 			flag = false;
 		}
 
+		if (flag == true) {
+			System.out.println("Swap performed!");
+
+
+		}
 		return flag;
 	}
 
@@ -94,7 +103,8 @@ public class Wizard extends GameObject{
 	public boolean update() {
 		if (state == 'a' && wizardVision.getOrc(location) != null) {
 			state = 'd'; //d for dead;
-			displayCode = 'X';
+			location.x = -1;
+			location.y = -1;
 			return true;
 		} else {
 			return false;

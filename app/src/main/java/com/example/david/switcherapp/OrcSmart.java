@@ -71,11 +71,12 @@ public class OrcSmart extends Orc implements Mover {
 			case 's': 
 				System.out.println("Orc " + id + " is stopped");
 				break;
-			
 			case 'm': 
 				updateLocation();
 				break;
-			
+			case 'p':
+				state = 'm';
+				break;
 			case 'b': //attempt to move again
 				startMoving(destination);
 				break; 

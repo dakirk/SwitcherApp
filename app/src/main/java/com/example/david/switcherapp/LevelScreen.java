@@ -1,6 +1,7 @@
 package com.example.david.switcherapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.provider.ContactsContract;
 import android.support.v4.app.DialogFragment;
@@ -21,6 +22,8 @@ public class LevelScreen extends AppCompatActivity {
     public ImageButton bEnd;
     public Drawable swapper;
     public static View view;
+    private Model gameModel;
+    private boolean gameIsOver = false;
     double x, y;
     CartPoint bStartPoint;
     CartPoint bEndPoint;
@@ -33,17 +36,24 @@ public class LevelScreen extends AppCompatActivity {
         setContentView(R.layout.activity_level_screen);
         view = findViewById(android.R.id.content);
 
-        Model testModel = new Model("Level5.txt",this);
+        gameModel = new Model("Level5.txt",this);
 
         boolean isMoving;
-        testModel.redraw();
-        testModel.printBoard();
+
+
+
        // do {
             //try {
               //  System.in.read(); //waits for user to press enter
             //} catch (IOException e) {}
             //testModel.clear();
            // isMoving = !testModel.update();
+            try {
+                System.in.read(); //waits for user to press enter
+            } catch (IOException e) {}
+            gameModel.clear();
+            isMoving = !gameModel.update();
+            gameModel.printBoard();
        //     testModel.printBoard();
        // } while (testModel.getGameState() == 0);
 
@@ -60,12 +70,29 @@ public class LevelScreen extends AppCompatActivity {
         {
             if(i==2)
                 ButtonTo(v);
-            if(i==3)
+            if(i==3) //if two things selected already
             {
-                Swap();
+                Swap(); //get rid of this, instead call Wizard's swap and then update!
                 i=1;
+
+                gameModel.clear();
+                if (gameModel.getGameState() == 0) {
+
+                    gameModel.update();
+                    gameModel.printBoard();
+                }
+                else if (gameModel.getGameState() != 0 && !gameIsOver) { //game is won or lost
+                    gameModel.printBoard();
+                    gameIsOver = true;
+                    return;
+                }
+                if (gameIsOver) {
+                    Intent returnToHome = new Intent(this, MainActivity.class);
+                    startActivity(returnToHome);
+                }
             }
         }
+
     }
     public void ButtonFrom(View view)
     {
@@ -95,11 +122,13 @@ public class LevelScreen extends AppCompatActivity {
     public void Swap() {
         boolean flag = Wizard.magicSwap(bStartPoint, bEndPoint);
         System.out.println("flag: "+flag);
-        if (flag) {
+        gameModel.redraw();
+        gameModel.printBoard();
+        /*if (flag) {
             swapper = bStart.getDrawable();
             bStart.setImageDrawable(bEnd.getDrawable());
             bEnd.setImageDrawable(swapper);
-        }
+        }*/
     }
 
     public static void InitializeButton(char sprite, double i, double j)

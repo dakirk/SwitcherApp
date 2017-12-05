@@ -107,6 +107,10 @@ public abstract class GameObject {
 		location = tempLoc;
 	}
 
+	public boolean isOrc() {
+		return false;
+	}
+
 	/**
 	 * Overrides Object's toString method
 	 * @return the string representing this GameObject's current status

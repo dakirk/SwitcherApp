@@ -94,7 +94,10 @@ public class Orc extends GameObject implements Mover {
 					updateLocation();
 				}
 				break;
-			
+
+			case 'p':
+				state = 'm';
+				break;
 			case 'b': //attempt to move again
 				startMoving(destination);
 				break; 
@@ -154,6 +157,19 @@ public class Orc extends GameObject implements Mover {
 		state = 'd'; //change state to "dead"
 		location.x = -1; //teleport to (-1, -1)
 		location.y = -1;
+	}
+
+	public void pause() {
+		if (state != 'd') {
+			state = 'p';
+			System.out.println("Orc paused.");
+		} else {
+			System.out.println("Dead orcs can't be paused!");
+		}
+	}
+
+	public boolean isOrc() {
+		return true;
 	}
 
 	/**
