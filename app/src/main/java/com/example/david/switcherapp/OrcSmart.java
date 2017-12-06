@@ -73,13 +73,11 @@ public class OrcSmart extends Orc implements Mover {
 				break;
 			case 'm': 
 				updateLocation();
-				break;
-			case 'p':
-				state = 'm';
+				world.printWorld();
 				break;
 			case 'b': //attempt to move again
 				startMoving(destination);
-				break; 
+				break;
 			case 'd':
 				//System.out.println("Orc " + id + " is blocked!");
 				break;

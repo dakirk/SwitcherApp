@@ -111,12 +111,14 @@ public class GameWorld implements TileBasedMap {
 	 * @return True if the location is blocked
 	 */
 	public boolean blocked(Mover mover, int x, int y) {
+		//System.out.println("Moving object: " + mover);
 		if (((Orc)mover).getType() == 's') {
 			String impassableObjects = "Wobs"; //smart orc obstacles
 			if (impassableObjects.indexOf(viewMat[x][y]) != -1) { //if object is impassible
-				//System.out.println("Blocked!");
+				System.out.println("Blocked!");
 				return true;
 			} else {
+				//System.out.println("Not blocked!");
 				return false;
 			}
 		} else if (((Orc)mover).getType() == 'n') {
@@ -147,4 +149,12 @@ public class GameWorld implements TileBasedMap {
 		return 1;
 	}
 
+	public void printWorld() {
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				System.out.print(" " + viewMat[i][j]);
+			}
+			System.out.println();
+		}
+	}
 }

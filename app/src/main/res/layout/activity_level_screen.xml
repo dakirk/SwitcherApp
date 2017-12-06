@@ -151,8 +151,8 @@
             android:background="@mipmap/grass"
             android:contentDescription="@string/Button"
             android:onClick="onClick"
-            android:text=""
-            android:tag="09"/>
+            android:tag="20"
+            android:text="" />
 
         <ImageButton
             android:id="@+id/button30"

@@ -36,7 +36,7 @@ public class LevelScreen extends AppCompatActivity {
         setContentView(R.layout.activity_level_screen);
         view = findViewById(android.R.id.content);
 
-        gameModel = new Model("Level5.txt",this);
+        gameModel = new Model("Level6.txt",this);
 
         boolean isMoving;
 
@@ -75,7 +75,6 @@ public class LevelScreen extends AppCompatActivity {
                 Swap(); //get rid of this, instead call Wizard's swap and then update!
                 i=1;
 
-                gameModel.clear();
                 if (gameModel.getGameState() == 0) {
 
                     gameModel.update();

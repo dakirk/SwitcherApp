@@ -86,9 +86,6 @@ public class OrcBrute extends Orc implements Mover {
 				}
 				break;
 
-			case 'p':
-				state = 'm';
-				break;
 			case 'b': //attempt to move again
 				startMoving(destination);
 				break; 
