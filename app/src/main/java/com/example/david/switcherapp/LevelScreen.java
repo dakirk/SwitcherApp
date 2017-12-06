@@ -2,6 +2,7 @@ package com.example.david.switcherapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.provider.ContactsContract;
 import android.support.v4.app.DialogFragment;
@@ -13,6 +14,7 @@ import android.widget.ImageButton;
 import android.support.design.widget.Snackbar;
 import android.widget.Toast;
 import android.widget.ImageView;
+
 
 
 import java.io.IOException;
@@ -92,6 +94,8 @@ public class LevelScreen extends AppCompatActivity {
 
                     System.out.println(gameModel.getGameState());
 
+                    bStart.setColorFilter(Color.argb(0, 0, 0, 0)); //untint selected button
+                    bEnd.setColorFilter(Color.argb(0, 0, 0, 0)); //untint selected button
 
                     if (gameModel.getGameState() != 0 && !gameIsOver) { //game is won or lost -- use to print win or loss screen
                         System.out.println("Game over!");
@@ -116,29 +120,63 @@ public class LevelScreen extends AppCompatActivity {
     public void ButtonFrom(View view)
     {
         bStart = findViewById(view.getId());
-       // System.out.println("bStart: " + bStart);
         String Btag = (String)view.getTag();
-       // System.out.println("BTag: "+Btag);
+
         x = Double.parseDouble(String.valueOf(Btag.charAt(0)));
         y = Double.parseDouble(String.valueOf(Btag.charAt(1)));
-       // System.out.println("x: " +x+" y:"+y);
         bStartPoint = new CartPoint(x,y);
+
+        GameObject selectedObj = gameModel.getGameObject(bStartPoint);
+        if (selectedObj != null) {
+            char bStartPointObjType = selectedObj.getType();
+            if (bStartPointObjType != 'W' && Character.toUpperCase(bStartPointObjType) != 'H') { //if not wall or hole
+                bStart.setColorFilter(Color.argb(127, 255, 255, 255)); //tint button if swappable
+                //in the future we could put more stuff here--determine whether to select or not based on type!
+                i=2;
+
+            } else {
+                i=1; //reject selection and repeat on next tap
+            }
+        } else {
+            bStart.setImageResource(R.mipmap.highlight);
+            i=2; //if selection null selection still valid
+        }
+
+
         //System.out.println(bStartPoint);
-        i=2;
+
     }
 
     public void ButtonTo(View v)
     {
         bEnd = findViewById(v.getId());
         String Btag = (String)v.getTag();
+
         x = Double.parseDouble(String.valueOf(Btag.charAt(0)));
         y = Double.parseDouble(String.valueOf(Btag.charAt(1)));
         bEndPoint = new CartPoint(x,y);
-       // System.out.println(bEndPoint);
-        i=3;
+
+        GameObject selectedObj = gameModel.getGameObject(bStartPoint);
+        if (selectedObj != null) {
+            char bEndPointObjType = selectedObj.getType();
+            if (bEndPointObjType != 'W' && Character.toUpperCase(bEndPointObjType) != 'H') { //if not wall or hole
+                bStart.setColorFilter(Color.argb(127, 255, 255, 255)); //tint button if swappable
+                //in the future we could put more stuff here--determine whether to select or not based on type!
+                i=3;
+
+            } else {
+                i=2; //reject selection and repeat on next tap
+            }
+        } else {
+            bStart.setImageResource(R.mipmap.highlight);
+            i=3; //if selection null selection is still valid
+        }
+
+        //System.out.println(bEndPoint);
     }
 
     public void Swap() {
+
         boolean flag = Wizard.magicSwap(bStartPoint, bEndPoint);
         System.out.println("flag: "+flag);
 
@@ -173,7 +211,7 @@ public class LevelScreen extends AppCompatActivity {
                         b.setImageResource(R.drawable.orc_wary);
                         break;
                     case 'W':
-                        b.setImageResource(R.drawable.wall);
+                        b.setImageResource(R.mipmap.wall);
                         break;
                     case 'h':
                         b.setImageResource(R.mipmap.hole);

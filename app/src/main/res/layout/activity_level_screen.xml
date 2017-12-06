@@ -225,7 +225,9 @@
             android:contentDescription="@string/Button"
             android:onClick="onClick"
             android:tag="80"
-            android:text="" />
+            android:text=""
+            tools:layout_editor_absoluteX="328dp"
+            tools:layout_editor_absoluteY="59dp" />
 
         <ImageButton
             android:id="@+id/button12"
