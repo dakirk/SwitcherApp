@@ -84,8 +84,8 @@ public class LevelScreen extends AppCompatActivity {
                 {
                     Swap();
                     i=1;
-
                     //UPDATE CYCLE -- DO NOT RE-ARRANGE (might cause screwy behavior in-game)
+                    gameModel.redraw();
                     gameModel.update();
                     gameModel.printBoard();
                     //end of update cycle
@@ -176,7 +176,7 @@ public class LevelScreen extends AppCompatActivity {
                         b.setImageResource(R.drawable.wall);
                         break;
                     case 'h':
-                        b.setImageResource(R.drawable.hole);
+                        b.setImageResource(R.mipmap.hole);
                         break;
                     case 'P':
                         b.setImageResource(R.drawable.wizard);
