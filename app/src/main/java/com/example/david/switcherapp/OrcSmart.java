@@ -73,7 +73,6 @@ public class OrcSmart extends Orc implements Mover {
 				break;
 			case 'm': 
 				updateLocation();
-				world.printWorld();
 				break;
 			case 'b': //attempt to move again
 				startMoving(destination);

@@ -17,6 +17,7 @@ public class Orc extends GameObject implements Mover {
 	protected CartPoint delta;
 	protected Model orcVision;
 	protected static int numOrcs = 0;
+	protected String blockObjs = "nsobW";
 
 	/**
 	 * Simple constructor, generates a default CartPoint as its location
@@ -67,19 +68,19 @@ public class Orc extends GameObject implements Mover {
 					break;
 
 				} else { //if not arrived yet
+					/*
 					delta = calcDelta(); //refreshes delta
 
 					if (Math.abs(delta.x) > Math.abs(delta.y)) { //predicts next move
 						obstacle = getObjAtPos(location.x + (delta.x / Math.abs(delta.x)), location.y);
 					} else {
 						obstacle = getObjAtPos(location.x, location.y + (delta.y / Math.abs(delta.y)));
-					}
+					}*/
+					obstacle = getNextObj();
 
 				}
 
 				if (obstacle != null) { //if there is an obstacle
-
-					String blockObjs = "sobW"; //object types that will block the brute
 
 					if (blockObjs.indexOf(obstacle.getType()) != -1) {
 						state = 'b';
@@ -96,8 +97,15 @@ public class Orc extends GameObject implements Mover {
 				break;
 
 			case 'b': //attempt to move again
-				startMoving(destination);
-				break; 
+				GameObject blockage = getNextObj();
+				if (blockage == null || blockObjs.indexOf(blockage.getType()) == -1) { //if blockage gone
+					System.out.println("Blockage gone!");
+					startMoving(destination);
+					break;
+				} else { //if still blocked
+					//System.out.println(toString());
+					break;
+				}
 			case 'd':
 				//System.out.println("Orc " + id + " is blocked!");
 				break;
@@ -184,6 +192,19 @@ public class Orc extends GameObject implements Mover {
 			returnStr += (" is moving towards " + destination);
 		}
 		return returnStr;
+	}
+
+	protected GameObject getNextObj() {
+		GameObject returnObj;
+		delta = calcDelta(); //refreshes delta
+
+		if (Math.abs(delta.x) > Math.abs(delta.y)) { //predicts next move
+			returnObj = getObjAtPos(location.x + (delta.x / Math.abs(delta.x)), location.y);
+		} else {
+			returnObj = getObjAtPos(location.x, location.y + (delta.y / Math.abs(delta.y)));
+		}
+
+		return returnObj;
 	}
 
 	/**

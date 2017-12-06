@@ -115,7 +115,7 @@ public class GameWorld implements TileBasedMap {
 		if (((Orc)mover).getType() == 's') {
 			String impassableObjects = "Wobs"; //smart orc obstacles
 			if (impassableObjects.indexOf(viewMat[x][y]) != -1) { //if object is impassible
-				System.out.println("Blocked!");
+				//System.out.println("Blocked!");
 				return true;
 			} else {
 				//System.out.println("Not blocked!");

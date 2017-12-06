@@ -36,7 +36,7 @@ public class LevelScreen extends AppCompatActivity {
         setContentView(R.layout.activity_level_screen);
         view = findViewById(android.R.id.content);
 
-        gameModel = new Model("Level6.txt",this);
+        gameModel = new Model("Level7.txt",this);
 
         boolean isMoving;
 
@@ -52,7 +52,7 @@ public class LevelScreen extends AppCompatActivity {
                 System.in.read(); //waits for user to press enter
             } catch (IOException e) {}
             gameModel.clear();
-            isMoving = !gameModel.update();
+            //isMoving = !gameModel.update();
             gameModel.printBoard();
        //     testModel.printBoard();
        // } while (testModel.getGameState() == 0);
@@ -64,32 +64,35 @@ public class LevelScreen extends AppCompatActivity {
     }
     public void onClick(View v)
     {
-        if(i==1)
-            ButtonFrom(v);
-        else
-        {
-            if(i==2)
-                ButtonTo(v);
-            if(i==3) //if two things selected already
-            {
-                Swap(); //get rid of this, instead call Wizard's swap and then update!
-                i=1;
 
-                if (gameModel.getGameState() == 0) {
+
+        if (gameIsOver) { //activities to do when user has seen that game is over
+            Intent returnToHome = new Intent(this, MainActivity.class);
+            startActivity(returnToHome);
+        } else {
+
+            if(i==1)
+                ButtonFrom(v);
+            else
+            {
+                if(i==2)
+                    ButtonTo(v);
+                if(i==3) //if two things selected already
+                {
+                    Swap();
+                    i=1;
 
                     gameModel.update();
                     gameModel.printBoard();
-                }
-                else if (gameModel.getGameState() != 0 && !gameIsOver) { //game is won or lost
-                    gameModel.printBoard();
-                    gameIsOver = true;
-                    return;
-                }
-                if (gameIsOver) {
-                    Intent returnToHome = new Intent(this, MainActivity.class);
-                    startActivity(returnToHome);
+                    System.out.println(gameModel.getGameState());
+
+                    if (gameModel.getGameState() != 0 && !gameIsOver) { //game is won or lost -- use to print win or loss screen
+                        gameIsOver = true;
+                    }
                 }
             }
+
+
         }
 
     }
@@ -121,8 +124,7 @@ public class LevelScreen extends AppCompatActivity {
     public void Swap() {
         boolean flag = Wizard.magicSwap(bStartPoint, bEndPoint);
         System.out.println("flag: "+flag);
-        gameModel.redraw();
-        gameModel.printBoard();
+
         /*if (flag) {
             swapper = bStart.getDrawable();
             bStart.setImageDrawable(bEnd.getDrawable());

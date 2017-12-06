@@ -186,55 +186,49 @@ public class Model {
 	 */
 	public boolean update() {
 
-		if (gameState == 0) {
-			int deadOrcCounter = 0;
-			boolean returnVal = false;
+		int deadOrcCounter = 0;
+		boolean returnVal = false;
+
+		//determine which message to print if game is over
+		if (gameState == 1) { //if game won
+			System.out.println("All orcs are killed or blocked. You win!");
+			returnVal = true;
+		} else if (gameState == -1) { //if game lost
+			System.out.println("An orc killed the wizard. You lose!");
+			returnVal = true;
+		} else { //if game still running
 
 			for (GameObject obj : objList) { //update every object in list
 				boolean eventHappened = obj.update();
 				if (eventHappened) {
 					returnVal = true;
 				}
-			}
 
-			for (GameObject obj : objList) { //tally dead and blocked orcs, see if game over
-				
-
-				if (obj.getType() == 'o') { //if this object is an orc (will expand in future to include more types of orcs)
-					if (obj.getState() == 'b' || obj.getState() == 'd') { //if orc is dead or blocked
-						deadOrcCounter++; //increase incapacitated orc counter
-					}
-				}
-
-				if (obj.getType() == 'X') { //if wizard died, player loses
+				if (obj.getType() == 'X') { //wizard died
 					gameState = -1;
 					returnVal = true;
 				}
-
-				if (deadOrcCounter == Orc.getNumOrcs()) { //if all orcs dead or incapacitated, player wins
-					gameState = 1;
-					returnVal = true;
-				}
-
-				if (obj.getState() != 'd') { //only add to board if alive (dead orcs take up -1, -1 anyway, so would cause an error)
-					//viewArray[(int)obj.getLocation().x][(int)obj.getLocation().y] = obj.getType();
-					redraw();
-					//world.setView((int)obj.getLocation().x, (int)obj.getLocation().y, obj.getType());
-				}
-
 			}
 
-			//determine which message to print if game is over
-			if (gameState == 1) {
-				System.out.println("All orcs are killed or blocked. You win!");
-			} else if (gameState == -1) {
-				System.out.println("An orc killed the wizard. You lose!");
+			int orcTally = 0; //must be at least one orc to win
+			for (Orc enemy : orcList) { //tally dead and blocked orcs, see if game over
+				//System.out.println("Orc: " + enemy);
+				//System.out.println("State: " + enemy.getState());
+				if (enemy.getState() == 'b' || enemy.getState() == 'd') { //if all orcs dead, game won
+					orcTally++;
+				}
+			}
+			if (orcList.size() > 0 && orcTally == orcList.size()) {
+				gameState = 1;
+				returnVal = true;
+				System.out.println("All orcs incapacitated!");
 			}
 
-			return returnVal;
-		} else {
-			return true; //prevents infinite loop if updates are looped after the game ends
 		}
+
+		clear();
+		return returnVal;
+
 
 	}
 

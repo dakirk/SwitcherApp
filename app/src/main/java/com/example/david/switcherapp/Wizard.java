@@ -45,9 +45,9 @@ public class Wizard extends GameObject{
 		//System.out.println("CartPoint p1" + p1);
 		//System.out.println("CartPoint p2"+p2);
 		GameObject obj1 = wizardVision.getGameObject(p1);
-		System.out.println(obj1);
+		//System.out.println(obj1);
 		GameObject obj2 = wizardVision.getGameObject(p2);
-		System.out.println(obj2);
+		//System.out.println(obj2);
 		String excludeChars = "hwWP"; //list of unteleportable objects
 		boolean flag = true;
 
@@ -103,6 +103,7 @@ public class Wizard extends GameObject{
 	public boolean update() {
 		if (state == 'a' && wizardVision.getOrc(location) != null) {
 			state = 'd'; //d for dead;
+			displayCode = 'X';
 			location.x = -1;
 			location.y = -1;
 			return true;

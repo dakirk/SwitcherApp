@@ -67,8 +67,6 @@ public class OrcBrute extends Orc implements Mover {
 
 				if (obstacle != null) { //if there is an obstacle
 
-					String blockObjs = "sob"; //object types that will block the brute
-
 					if (blockObjs.indexOf(obstacle.getType()) != -1) {
 						state = 'b';
 						System.out.println("Orc " + id + " has hit an obstacle");
@@ -87,8 +85,17 @@ public class OrcBrute extends Orc implements Mover {
 				break;
 
 			case 'b': //attempt to move again
-				startMoving(destination);
-				break; 
+				GameObject blockage = getNextObj();
+				System.out.println(blockage);
+				if (blockage == null || blockObjs.indexOf(blockage.getType()) == -1) { //if blockage gone
+					System.out.println("Blockage gone!");
+					startMoving(destination);
+					break;
+				} else { //if still blocked
+					//System.out.println(toString());
+					break;
+
+				}
 			case 'd':
 				//System.out.println("Orc " + id + " is blocked!");
 				break;
