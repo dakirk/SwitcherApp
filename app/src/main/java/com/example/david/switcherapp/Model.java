@@ -227,6 +227,7 @@ public class Model {
 		}
 
 		clear();
+		redraw();
 		return returnVal;
 
 
