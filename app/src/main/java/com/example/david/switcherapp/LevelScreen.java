@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.support.design.widget.Snackbar;
 import android.widget.Toast;
+import android.widget.ImageView;
+
 
 import java.io.IOException;
 
@@ -82,11 +84,25 @@ public class LevelScreen extends AppCompatActivity {
                     Swap();
                     i=1;
 
+                    //UPDATE CYCLE -- DO NOT RE-ARRANGE (might cause screwy behavior in-game)
                     gameModel.update();
                     gameModel.printBoard();
+                    //end of update cycle
+
                     System.out.println(gameModel.getGameState());
 
+
                     if (gameModel.getGameState() != 0 && !gameIsOver) { //game is won or lost -- use to print win or loss screen
+                        System.out.println("Game over!");
+                        ImageView img;
+                        if (gameModel.getGameState() == -1) {
+                            img = (ImageView)findViewById(R.id.gameOverMessage);
+                            img.setImageResource(R.mipmap.death_message);
+                        } else {
+                            img = (ImageView)findViewById(R.id.gameOverMessage);
+                            img.setImageResource(R.mipmap.win_message);
+
+                        }
                         gameIsOver = true;
                     }
                 }
@@ -172,9 +188,9 @@ public class LevelScreen extends AppCompatActivity {
                 }
             }
             else if(b == null)
-            {
-                    System.out.println("Button Not Found");
-            }
+                {
+                        System.out.println("Button Not Found");
+                }
             }
         }
 

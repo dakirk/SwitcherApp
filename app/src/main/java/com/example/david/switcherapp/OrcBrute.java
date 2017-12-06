@@ -10,6 +10,7 @@ import com.example.david.switcherapp.AStarPathFinding.Mover;
  */
 public class OrcBrute extends Orc implements Mover {
 
+	protected String blockObjs = "nobs";
 	/**
 	 * Simple constructor, generates a default CartPoint as its location
 	 * @param inModel Model that the OrcBrute will be placed into
@@ -69,7 +70,7 @@ public class OrcBrute extends Orc implements Mover {
 
 					if (blockObjs.indexOf(obstacle.getType()) != -1) {
 						state = 'b';
-						System.out.println("Orc " + id + " has hit an obstacle");
+						System.out.println("Brute " + id + " has hit an obstacle");
 						returnVal = true;
 					} else if (obstacle.getType() == 'W') { //if reached a wall
 						((Wall)obstacle).smash();
