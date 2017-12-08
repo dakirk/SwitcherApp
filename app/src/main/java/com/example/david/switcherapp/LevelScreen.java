@@ -24,7 +24,6 @@ public class LevelScreen extends AppCompatActivity {
 
     public ImageButton bStart;
     public ImageButton bEnd;
-    public Drawable swapper;
     public static View view;
     private Model gameModel;
     private boolean gameIsOver = false;
@@ -69,51 +68,20 @@ public class LevelScreen extends AppCompatActivity {
     }
     public void onClick(View v)
     {
-
-
         if (gameIsOver) { //activities to do when user has seen that game is over
             Intent returnToHome = new Intent(this, MainActivity.class);
             startActivity(returnToHome);
         } else {
 
-            if(i==1)
+            if(i==1) {
                 ButtonFrom(v);
-            else
-            {
-                if(i==2)
-                    ButtonTo(v);
-                if(i==3) //if two things selected already
-                {
-                    Swap();
-                    i=1;
-                    //UPDATE CYCLE -- DO NOT RE-ARRANGE (might cause screwy behavior in-game)
-                    gameModel.redraw();
-                    gameModel.update();
-                    gameModel.printBoard();
-                    //end of update cycle
-
-                    System.out.println(gameModel.getGameState());
-
-                    bStart.setColorFilter(Color.argb(0, 0, 0, 0)); //untint selected button
-                    bEnd.setColorFilter(Color.argb(0, 0, 0, 0)); //untint selected button
-
-                    if (gameModel.getGameState() != 0 && !gameIsOver) { //game is won or lost -- use to print win or loss screen
-                        System.out.println("Game over!");
-                        ImageView img;
-                        if (gameModel.getGameState() == -1) {
-                            img = (ImageView)findViewById(R.id.gameOverMessage);
-                            img.setImageResource(R.mipmap.death_message);
-                        } else {
-                            img = (ImageView)findViewById(R.id.gameOverMessage);
-                            img.setImageResource(R.mipmap.win_message);
-
-                        }
-                        gameIsOver = true;
-                    }
-                }
+                System.out.println("Button From selected");
             }
-
-
+            else
+            if(i==2) {
+                ButtonTo(v);
+                System.out.println("Button To selected");
+            }
         }
 
     }
@@ -133,6 +101,7 @@ public class LevelScreen extends AppCompatActivity {
                 bStart.setColorFilter(Color.argb(127, 255, 255, 255)); //tint button if swappable
                 //in the future we could put more stuff here--determine whether to select or not based on type!
                 i=2;
+                System.out.print(view.getBackground());
 
             } else {
                 i=1; //reject selection and repeat on next tap
@@ -147,29 +116,28 @@ public class LevelScreen extends AppCompatActivity {
 
     }
 
-    public void ButtonTo(View v)
-    {
+    public void ButtonTo(View v) {
+        System.out.println("In Button To");
         bEnd = findViewById(v.getId());
-        String Btag = (String)v.getTag();
+        String Btag = (String) v.getTag();
 
         x = Double.parseDouble(String.valueOf(Btag.charAt(0)));
         y = Double.parseDouble(String.valueOf(Btag.charAt(1)));
-        bEndPoint = new CartPoint(x,y);
+        bEndPoint = new CartPoint(x, y);
 
         GameObject selectedObj = gameModel.getGameObject(bStartPoint);
         if (selectedObj != null) {
             char bEndPointObjType = selectedObj.getType();
             if (bEndPointObjType != 'W' && Character.toUpperCase(bEndPointObjType) != 'H') { //if not wall or hole
-                bStart.setColorFilter(Color.argb(127, 255, 255, 255)); //tint button if swappable
+                bEnd.setColorFilter(Color.argb(127, 255, 255, 255)); //tint button if swappable
                 //in the future we could put more stuff here--determine whether to select or not based on type!
-                i=3;
-
+                i = 3;
             } else {
-                i=2; //reject selection and repeat on next tap
+                i = 2; //reject selection and repeat on next tap
             }
         } else {
-            bStart.setImageResource(R.mipmap.highlight);
-            i=3; //if selection null selection is still valid
+            bEnd.setImageResource(R.mipmap.highlight);
+            i = 3; //if selection null selection is still valid
         }
 
         //System.out.println(bEndPoint);
@@ -178,7 +146,6 @@ public class LevelScreen extends AppCompatActivity {
     public void Swap() {
 
         boolean flag = Wizard.magicSwap(bStartPoint, bEndPoint);
-        System.out.println("flag: "+flag);
 
         /*if (flag) {
             swapper = bStart.getDrawable();
@@ -187,8 +154,7 @@ public class LevelScreen extends AppCompatActivity {
         }*/
     }
 
-    public static void InitializeButton(char sprite, double i, double j)
-    {
+    public static void InitializeButton(char sprite, double i, double j) {
         if(i!=-1&&j!=-1) {
             String str = "";
             str = str + String.valueOf((int)i) + String.valueOf((int)j);
@@ -231,8 +197,65 @@ public class LevelScreen extends AppCompatActivity {
                         System.out.println("Button Not Found");
                 }
             }
-        }
-
-
     }
+
+    public void Play(View view) {
+        System.out.println("In play");
+        if(i==1||i==2) {
+            System.out.println("In if Play");
+            gameModel.redraw();
+            gameModel.update();
+            gameModel.printBoard();
+            i=1;
+            if (gameModel.getGameState() != 0 && !gameIsOver) { //game is won or lost -- use to print win or loss screen
+                System.out.println("Game over!");
+                ImageView img;
+                if (gameModel.getGameState() == -1) {
+                    System.out.println("In death state");
+                    img = (ImageView) findViewById(R.id.gameOverMessage);
+                    img.setImageResource(R.mipmap.death_message);
+                }
+                if(gameModel.getGameState()== 1) {
+                    img = (ImageView) findViewById(R.id.gameOverMessage);
+                    img.setImageResource(R.mipmap.win_message);
+                }
+                gameIsOver=true;
+            }
+        }
+        else{
+            System.out.println("In else Play");
+            Swap();
+            i = 1;
+            //UPDATE CYCLE -- DO NOT RE-ARRANGE (might cause screwy behavior in-game)
+            gameModel.redraw();
+            gameModel.update();
+            gameModel.printBoard();
+            //end of update cycle
+
+            System.out.println(gameModel.getGameState());
+
+            bStart.setColorFilter(Color.argb(0, 0, 0, 0)); //untint selected button
+            bEnd.setColorFilter(Color.argb(0, 0, 0, 0)); //untint selected button
+
+            if (gameModel.getGameState() != 0 && !gameIsOver) { //game is won or lost -- use to print win or loss screen
+                System.out.println("Game over!");
+                ImageView img;
+                if (gameModel.getGameState() == -1) {
+                    System.out.println("In death state");
+                    img = (ImageView) findViewById(R.id.gameOverMessage);
+                    img.setImageResource(R.mipmap.death_message);
+                }
+                if(gameModel.getGameState()== 1) {
+                    img = (ImageView) findViewById(R.id.gameOverMessage);
+                    img.setImageResource(R.mipmap.win_message);
+                }
+                gameIsOver=true;
+            }
+            //gameIsOver = true;
+        }
+    }
+}
+
+
+
 

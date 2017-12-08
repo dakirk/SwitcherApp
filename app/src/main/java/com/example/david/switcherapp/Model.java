@@ -265,7 +265,6 @@ public class Model {
 			CartPoint current = obj.getLocation();
 			//System.out.println("current location: "+current);
 			if (current.x==objLocation.x && current.y==objLocation.y) {
-				System.out.println("In if getGameObject");
 				return obj;
 			}
 		}
