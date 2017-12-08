@@ -15,9 +15,9 @@
     <string name="gotIt">GOT IT</string>
     <string name="titel">I SMITE YOU!</string>
     <string name="power">Your Powers</string>
-    <string name="desc">You have the crystal of teleportation. \nYou can move inanimate \nobjects like walls.\nYou cannot move
-       living \nbeings like yourself and orcs.</string>
-    <string name="tapWall">Tap on wall:</string>
+    <string name="desc">You have the crystal of teleportation. \nYou can move living \n beings like orcs.\nYou cannot move
+       inanimate \objects like walls and holes. \n You also cannot move yourself.</string>
+    <string name="tapWall">Tap on a orc:</string>
     <string name="tapGrass">Tap on the grass:</string>
     <string name="Swap">TELEPORT!</string>
     <string name="stuck">Orc is stuck behind wall.</string>
