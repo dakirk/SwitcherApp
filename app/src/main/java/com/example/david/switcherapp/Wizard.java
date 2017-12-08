@@ -48,7 +48,7 @@ public class Wizard extends GameObject{
 		//System.out.println(obj1);
 		GameObject obj2 = wizardVision.getGameObject(p2);
 		//System.out.println(obj2);
-		String excludeChars = "hwWP"; //list of unteleportable objects
+		String excludeChars = "HhwWP"; //list of unteleportable objects
 		boolean flag = true;
 
 		if(obj1 != null && obj2 != null) { //if both objects exist

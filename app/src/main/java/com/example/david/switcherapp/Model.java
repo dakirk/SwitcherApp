@@ -124,6 +124,10 @@ public class Model {
 								objList.add(new Hole(new CartPoint(xCoord, yCoord), this, false));
 								System.out.println("Creating uncovered hole");
 								break;
+							case "m":
+								objList.add(new Mine(new CartPoint(xCoord, yCoord), this));
+								System.out.println("Creating mine");
+								break;
 							case "P":
 								objList.add(new Wizard(new CartPoint(xCoord, yCoord), this));
 								System.out.println("Creating wizard");
