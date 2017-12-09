@@ -57,8 +57,10 @@ public class Wizard extends GameObject{
 				flag = false;
 			} else {
 				obj1.swap(obj2);
-				((Orc)obj1).pause(); //prevent orcs from moving this turn
-				((Orc)obj2).pause(); //prevent orcs from moving this turn
+				if (obj1.isOrc())
+					((Orc)obj1).pause(); //prevent orcs from moving this turn
+				if (obj2.isOrc())
+					((Orc)obj2).pause(); //prevent orcs from moving this turn
 				flag = true;
 			}
 

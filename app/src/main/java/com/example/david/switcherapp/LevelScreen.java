@@ -39,7 +39,7 @@ public class LevelScreen extends AppCompatActivity {
         setContentView(R.layout.activity_level_screen);
         view = findViewById(android.R.id.content);
 
-        gameModel = new Model("Level3.txt",this);
+        gameModel = new Model("Level8.txt",this);
 
         boolean isMoving;
 
@@ -125,7 +125,7 @@ public class LevelScreen extends AppCompatActivity {
         y = Double.parseDouble(String.valueOf(Btag.charAt(1)));
         bEndPoint = new CartPoint(x, y);
 
-        GameObject selectedObj = gameModel.getGameObject(bStartPoint);
+        GameObject selectedObj = gameModel.getGameObject(bEndPoint);
         if (selectedObj != null) {
             char bEndPointObjType = selectedObj.getType();
             if (bEndPointObjType != 'W' && Character.toUpperCase(bEndPointObjType) != 'H') { //if not wall or hole
