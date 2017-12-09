@@ -37,12 +37,13 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="8dp"
+        android:background="@mipmap/level_select"
         android:contentDescription="@string/Button"
+        android:onClick="sendMessage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.18"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@mipmap/level_select"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
