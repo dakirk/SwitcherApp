@@ -77,8 +77,7 @@ public class LevelScreen extends AppCompatActivity {
                 ButtonFrom(v);
                 System.out.println("Button From selected");
             }
-            else
-            if(i==2) {
+            else if(i==2) {
                 ButtonTo(v);
                 System.out.println("Button To selected");
             }
