@@ -113,7 +113,7 @@ public class GameWorld implements TileBasedMap {
 	public boolean blocked(Mover mover, int x, int y) {
 		//System.out.println("Moving object: " + mover);
 		if (((Orc)mover).getType() == 's') {
-			String impassableObjects = "Wobs"; //smart orc obstacles
+			String impassableObjects = "Wobsn"; //smart orc obstacles
 			if (impassableObjects.indexOf(viewMat[x][y]) != -1) { //if object is impassible
 				//System.out.println("Blocked!");
 				return true;
@@ -122,7 +122,7 @@ public class GameWorld implements TileBasedMap {
 				return false;
 			}
 		} else if (((Orc)mover).getType() == 'n') {
-			String impassableObjects = "WobshBm"; //wary orc obstacles
+			String impassableObjects = "WobsnhBm"; //wary orc obstacles
 			if (impassableObjects.indexOf(viewMat[x][y]) != -1) { //if object is impassible
 				return true;
 			} else {

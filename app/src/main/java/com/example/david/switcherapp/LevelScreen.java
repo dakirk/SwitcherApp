@@ -39,7 +39,7 @@ public class LevelScreen extends AppCompatActivity {
         setContentView(R.layout.activity_level_screen);
         view = findViewById(android.R.id.content);
 
-        gameModel = new Model("Level8.txt",this);
+        gameModel = new Model("Level5.txt",this);
 
         boolean isMoving;
 
