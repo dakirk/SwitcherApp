@@ -122,7 +122,7 @@ public class GameWorld implements TileBasedMap {
 				return false;
 			}
 		} else if (((Orc)mover).getType() == 'n') {
-			String impassableObjects = "WobsnhBm"; //wary orc obstacles
+			String impassableObjects = "WobsnhB"; //wary orc obstacles
 			if (impassableObjects.indexOf(viewMat[x][y]) != -1) { //if object is impassible
 				return true;
 			} else {
