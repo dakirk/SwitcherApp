@@ -21,8 +21,13 @@ public class Mine extends GameObject {
 			doomedOrc.die();
 			returnVal = true;
 			state = 'd';
+			displayCode = 'e';
+			//location.x = -1;
+			//location.y = -1;
+		} else if (state == 'd') {
 			location.x = -1;
 			location.y = -1;
+			//doesn't return true because this is just the "animation"
 		}
 
 		return returnVal;

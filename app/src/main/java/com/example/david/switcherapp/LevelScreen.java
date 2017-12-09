@@ -39,7 +39,7 @@ public class LevelScreen extends AppCompatActivity {
         setContentView(R.layout.activity_level_screen);
         view = findViewById(android.R.id.content);
 
-        gameModel = new Model("Level5.txt",this);
+        gameModel = new Model("Level3.txt",this);
 
         boolean isMoving;
 
@@ -187,6 +187,9 @@ public class LevelScreen extends AppCompatActivity {
                         break;
                     case 'm':
                         b.setImageResource(R.mipmap.mine);
+                        break;
+                    case 'e':
+                        b.setImageResource(R.mipmap.explosion);
                         break;
                     case 'P':
                         b.setImageResource(R.drawable.wizard);
