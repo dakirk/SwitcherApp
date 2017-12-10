@@ -128,6 +128,14 @@ public class Model {
 								objList.add(new Mine(new CartPoint(xCoord, yCoord), this));
 								System.out.println("Creating mine");
 								break;
+							case "R":
+								objList.add(new Bomb(new CartPoint(xCoord, yCoord), this, 2));
+								System.out.println("Creating large bomb");
+								break;
+							case "r":
+								objList.add(new Bomb(new CartPoint(xCoord, yCoord), this, 1));
+								System.out.println("Creating small bomb");
+								break;
 							case "P":
 								objList.add(new Wizard(new CartPoint(xCoord, yCoord), this));
 								System.out.println("Creating wizard");
@@ -292,6 +300,17 @@ public class Model {
 			}
 		}
 		return null;
+	}
+
+	public ArrayList<GameObject> getObjectsInRadius(CartPoint location, double radius) {
+		ArrayList<GameObject> returnList = new ArrayList<GameObject>();
+		for (GameObject obj : objList) {
+			if (CartPoint.cartDistance(obj.getLocation(), location) < radius) {
+				returnList.add(obj);
+			}
+		}
+		System.out.println(returnList);
+		return returnList;
 	}
 
 	/**

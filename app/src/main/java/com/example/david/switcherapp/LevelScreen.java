@@ -80,12 +80,15 @@ public class LevelScreen extends AppCompatActivity {
     }
     public void GameBegin()
     {
+        /*
         img.postDelayed(new Runnable() {
             @Override
             public void run() {
                 img.setImageResource(0);
             }
-        },5000);
+        },5000); */
+        img.setImageResource(0);
+
         if(levelcounter<=8) {
             gameModel = new Model(level, this);
             try {
@@ -107,8 +110,9 @@ public class LevelScreen extends AppCompatActivity {
     public void onClick(View v)
     {
         if (gameIsOver) { //activities to do when user has seen that game is over
-            Intent returnToHome = new Intent(this, MainActivity.class);
-            startActivity(returnToHome);
+            //Intent returnToHome = new Intent(this, MainActivity.class);
+            //startActivity(returnToHome);
+            GameBegin();
         } else {
 
             if(i==1) {
@@ -263,13 +267,14 @@ public class LevelScreen extends AppCompatActivity {
                 if (gameModel.getGameState() == -1) {
                    // img = (ImageView) findViewById(R.id.gameOverMessage);
                     img.setImageResource(R.mipmap.death_message);
-                    GameBegin();
+                    gameIsOver = true;
                 }
                 if(gameModel.getGameState()== 1) {
                     //img = (ImageView) findViewById(R.id.gameOverMessage);
                     img.setImageResource(R.mipmap.win_message);
                     level = "Level"+Integer.toString(++levelcounter)+".txt";
-                    GameBegin();
+                    //GameBegin();
+                    gameIsOver = true;
                    // win = true;
                 }
                 //gameIsOver=true;

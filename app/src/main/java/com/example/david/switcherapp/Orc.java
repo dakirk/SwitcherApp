@@ -17,7 +17,7 @@ public class Orc extends GameObject implements Mover {
 	protected CartPoint delta;
 	protected Model orcVision;
 	protected static int numOrcs = 0;
-	protected String blockObjs = "nsobW";
+	protected String blockObjs = "nsobeW";
 
 	/**
 	 * Simple constructor, generates a default CartPoint as its location

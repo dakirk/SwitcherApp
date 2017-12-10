@@ -106,14 +106,18 @@ public class Wizard extends GameObject{
 	 */
 	public boolean update() {
 		if (state == 'a' && wizardVision.getOrc(location) != null) {
-			state = 'd'; //d for dead;
-			displayCode = 'X';
-			location.x = -1;
-			location.y = -1;
+			die();
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	public void die() {
+		state = 'd';
+		displayCode = 'X';
+		location.x = -1;
+		location.y = -1;
 	}
 
 	/**

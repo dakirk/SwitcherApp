@@ -10,7 +10,7 @@ import com.example.david.switcherapp.AStarPathFinding.Mover;
  */
 public class OrcBrute extends Orc implements Mover {
 
-	protected String blockObjs = "nobs"; //Brute not blocked by walls
+	protected String blockObjs = "nobse"; //Brute not blocked by walls
 	/**
 	 * Simple constructor, generates a default CartPoint as its location
 	 * @param inModel Model that the OrcBrute will be placed into

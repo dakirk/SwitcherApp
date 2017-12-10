@@ -4,15 +4,22 @@
 
 package com.example.david.switcherapp;
 
-public class Mine extends GameObject {
+import java.util.ArrayList;
+
+public class Bomb extends GameObject {
 
 	private static int numHoles;
 	private Model gameModel;
+	private double radius;
 
-	public Mine(CartPoint inLoc, Model inModel) {
-		super(inLoc, ++numHoles, 'm');
+	public Bomb(CartPoint inLoc, Model inModel, int inRadius) {
+		super(inLoc, ++numHoles, 'r'); //default is small
 		state = 'i'; //c for covered
 		gameModel = inModel;
+		radius = inRadius;
+		if (radius > 1) {
+			displayCode = 'R'; //for large bombs
+		}
 		System.out.println("Mine constructed");
 	}
 
@@ -22,7 +29,7 @@ public class Mine extends GameObject {
 
 		Orc doomedOrc = (Orc)gameModel.getOrc(location);
 		if (doomedOrc != null && state == 'i') { //if orc exists and isn't a brute
-			doomedOrc.die();
+			explode();
 			returnVal = true;
 			state = 'd';
 			displayCode = 'e';
@@ -35,6 +42,18 @@ public class Mine extends GameObject {
 		}
 
 		return returnVal;
+	}
+
+	private void explode() {
+		ArrayList<GameObject> destroyedObjects = new ArrayList<GameObject>();
+		destroyedObjects = gameModel.getObjectsInRadius(location, radius);
+		for (GameObject obj : destroyedObjects) {
+			if (obj.isOrc()) {
+				((Orc)obj).die();
+			} else if (obj.getType() == 'P') {
+				((Wizard)obj).die();
+			}
+		}
 	}
 
 	/**
