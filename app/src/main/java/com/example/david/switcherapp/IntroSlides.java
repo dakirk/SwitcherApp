@@ -90,17 +90,23 @@ public class IntroSlides extends AppCompatActivity {
     }
 
     private void addBottomDots(int currentPage) {
+        System.out.println("Layouts length: " + layouts.length);
         dots = new TextView[layouts.length];
 
+        //these two arrays seem to not be long enough
         int[] colorsActive = getResources().getIntArray(R.array.array_dot_active);
         int[] colorsInactive = getResources().getIntArray(R.array.array_dot_inactive);
+        System.out.println("colorsActive length: " + colorsActive.length);
 
         dotsLayout.removeAllViews();
         for (int i = 0; i < dots.length; i++) {
             dots[i] = new TextView(this);
             dots[i].setText(Html.fromHtml("&#8226;"));
             dots[i].setTextSize(35);
-            dots[i].setTextColor(colorsInactive[currentPage]);
+            System.out.println("Dots length: " + dots.length);
+            System.out.println("i: " + i);
+            System.out.println("Current page: " + currentPage);
+            dots[i].setTextColor(colorsInactive[currentPage]); //crashes here--ArrayIndexOutOfBoundsException when page = 4
             dotsLayout.addView(dots[i]);
         }
 

@@ -1,6 +1,4 @@
-//TODO: add explosion class so that mines are not re-explodable? behavior is buggy
-//TODO: change Mine behavior to have a "primed" and "unprimed" state--"primed" is default, while "unprimed" requires priming by stepping on it (in other words, unprimed mines require two triggers to go off)
-//TODO: add bombs with similar behavior to mines, but visible to wary orcs and with a radius
+
 
 package com.example.david.switcherapp;
 
