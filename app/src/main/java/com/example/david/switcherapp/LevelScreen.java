@@ -93,8 +93,8 @@ public class LevelScreen extends AppCompatActivity {
                 bStart.setColorFilter(Color.argb(0, 0, 0, 0));
                 bEnd.setColorFilter(Color.argb(0, 0, 0, 0));
 
-                bStart = null;
-                bEnd = null;
+                //bStart = null;
+                //bEnd = null;
                 i = 1;
             }
             if(i==1) {
@@ -231,6 +231,9 @@ public class LevelScreen extends AppCompatActivity {
     }
 
     public void Play(View view) {
+        bStart.setColorFilter(Color.argb(0, 0, 0, 0));
+        bEnd.setColorFilter(Color.argb(0, 0, 0, 0));
+
         if(i==1||i==2) {
             gameModel.redraw();
             gameModel.update();
