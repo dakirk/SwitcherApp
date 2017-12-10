@@ -1,4 +1,4 @@
-Level 4
+Smart orcs will find a way to get to you. Dumb orcs will block their path.
 s 7 8
 o 2 1
 o 3 8

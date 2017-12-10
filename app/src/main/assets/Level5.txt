@@ -1,4 +1,4 @@
-Level 5
+Wary orcs will not fall into uncovered holes.
 n 8 1
 n 1 8
 b 1 4
