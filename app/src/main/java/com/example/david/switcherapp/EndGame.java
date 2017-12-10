@@ -14,11 +14,15 @@ public class EndGame extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        Intent intent = new Intent(Intent.ACTION_MAIN);
+        /*
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         intent.addCategory(Intent.CATEGORY_HOME);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//***Change Here***
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-        finish();
-        System.exit(0);
+        finish();*/
+        finishAffinity();
+
+
     }
 }
