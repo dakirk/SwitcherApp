@@ -1,4 +1,4 @@
-Level 3
+Brutes knock down walls. They will not kill other orcs though.
 o 2 2
 o 5 0
 o 7 6

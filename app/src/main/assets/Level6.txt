@@ -1,4 +1,4 @@
-Level 6
+A bomb kills all orcs in a radius of 2.
 o 1 2
 o 8 7
 o 2 4
