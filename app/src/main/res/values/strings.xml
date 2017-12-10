@@ -15,14 +15,14 @@
     <string name="gotIt">GOT IT</string>
     <string name="titel">I SMITE YOU!</string>
     <string name="power">Your Powers</string>
-    <string name="desc">You have the crystal of teleportation. \nYou can move orcs,mines and bombs.\nWalls and holes are too big
+    <string name="desc">You have the crystal of teleportation. \nYou can move orcs, mines, and bombs. \nWalls and holes are too big
         for you to move. \n You also cannot move yourself.</string>
     <string name="tapWall">Tap on a orc:</string>
     <string name="tapGrass">Tap on the grass:</string>
     <string name="Swap">TELEPORT!</string>
-    <string name="stuck">Orc is stuck and cannot move.</string>
+    <string name="stuck">Orc becomes stuck and cannot move.</string>
     <string name="End">Game Ends!</string>
-    <string name="Win">All orcs stuck behind wall.</string>
+    <string name="Win">All orcs stuck or dead.</string>
     <string name="Lose">Orcs eat you.</string>
     <string name="widget_to_show_win_or_loss_message">widget to show win or loss message</string>
     <string name="Level_Select_Message"> Please select a level</string>
@@ -31,11 +31,11 @@
     <string name="top">Types of Orcs</string>
     <string name="dumb">Dumb Orc\nGets stuck by walls.</string>
     <string name="smart">Smart Orc\nWill find a way\naround walls.</string>
-    <string name="wary">Wary Orc\nWill not go over\n uncovered holes,mines\n and bombs.</string>
+    <string name="wary">Wary Orc\nWill not go over\nuncovered holes,mines\nand bombs.</string>
     <string name="brute">Brute Orc\nWill smash its way\nthrough walls.</string>
     <string name="tut6">Objects</string>
-    <string name="Mine">Mine:\nBlows up orcs\non the square.</string>
-    <string name="Bomb">Bomb:\nBlows up orcs\nin radius 2.</string>
+    <string name="Mine">Small bomb:\nBlows up orcs\non its tile.</string>
+    <string name="Bomb">Large bomb:\nBlows up orcs\nin surrounding tiles.</string>
     <string name="Hole">Hole:\nOrcs fall in and die.</string>
     <string name="CoveredHole">Covered Hole:\nSmart and Wary orcs\ncannot see a covered hole.\nBecomes uncovered\nonce discovered.</string>
     <string name="level_15">1</string>

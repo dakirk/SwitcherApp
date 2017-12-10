@@ -1,4 +1,4 @@
-Level 3
+Orcs will not kill other orcs to get to you.
 o 2 2
 o 5 0
 o 7 6

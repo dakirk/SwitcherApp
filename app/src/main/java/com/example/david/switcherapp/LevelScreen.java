@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.support.design.widget.Snackbar;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageView;
 
@@ -48,31 +49,6 @@ public class LevelScreen extends AppCompatActivity {
 
         //gameModel = new Model("Level6.txt",this);
         GameBegin();
-
-      //  gameModel = new Model("Level1.txt", this);
-
-        //    try {
-          //    System.in.read(); //waits for user to press enter
-            //} catch (IOException e) {}
-            //gameModel.clear();
-            //isMoving = !gameModel.update();
-            //gameModel.redraw();
-            //gameModel.printBoard();
-
-        boolean isMoving;
-
-
-
-       // do {
-            //try {
-              //  System.in.read(); //waits for user to press enter
-            //} catch (IOException e) {}
-            //testModel.clear();
-           // isMoving = !testModel.update();
-
-       //     testModel.printBoard();
-       // } while (testModel.getGameState() == 0);
-
         System.out.println();
 
 
@@ -80,17 +56,13 @@ public class LevelScreen extends AppCompatActivity {
     }
     public void GameBegin()
     {
-        /*
-        img.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                img.setImageResource(0);
-            }
-        },5000); */
         img.setImageResource(0);
 
         if(levelcounter<=8) {
             gameModel = new Model(level, this);
+            String hint = gameModel.getHint();
+            TextView textView = findViewById(R.id.textView17);
+            textView.setText(hint);
             try {
                 System.in.read(); //waits for user to press enter
             } catch (IOException e) {
@@ -186,24 +158,16 @@ public class LevelScreen extends AppCompatActivity {
 
     public void Swap() {
 
-        boolean flag = Wizard.magicSwap(bStartPoint, bEndPoint);
+        Wizard.magicSwap(bStartPoint, bEndPoint);
 
-        /*if (flag) {
-            swapper = bStart.getDrawable();
-            bStart.setImageDrawable(bEnd.getDrawable());
-            bEnd.setImageDrawable(swapper);
-        }*/
     }
 
     public static void InitializeButton(char sprite, double i, double j) {
         if(i!=-1&&j!=-1) {
             String str = "";
             str = str + String.valueOf((int)i) + String.valueOf((int)j);
-           // System.out.println(str);
             ImageButton b = view.findViewWithTag(str);
-            //System.out.println(view.findViewWithTag("00"));
             if(b!=null){
-                //System.out.println("Inside if");
                 switch (sprite) {
                     case 'o':
                         b.setImageResource(R.drawable.orc);
@@ -255,23 +219,17 @@ public class LevelScreen extends AppCompatActivity {
             }
     }
 
-    public void Play(View v) {
-        System.out.println("Play function called");
+    public void Play(View view) {
         if(i==1||i==2) {
             gameModel.redraw();
-            System.out.println("Redraw complete");
             gameModel.update();
-            System.out.println("Update complete");
             gameModel.printBoard();
-            System.out.println("Board printed");
-
             i=1;
             if (gameModel.getGameState() != 0){ //&& !gameIsOver) { //game is won or lost -- use to print win or loss screen
                 System.out.println("Game over!");
                 gameIsOver = true;
 
                 if (gameModel.getGameState() == -1) {
-                   // img = (ImageView) findViewById(R.id.gameOverMessage);
                     img.setImageResource(R.mipmap.death_message);
                 }
                 if(gameModel.getGameState()== 1) {
@@ -280,8 +238,8 @@ public class LevelScreen extends AppCompatActivity {
                     level = "Level"+Integer.toString(++levelcounter)+".txt";
                     //GameBegin();
                    // win = true;
+                    gameIsOver = true;
                 }
-                //gameIsOver=true;
             }
         }
         else{

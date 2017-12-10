@@ -1,4 +1,4 @@
-Orcs are attracted to the smell of human flesh, but are rather dumb. Use your magic to block their paths!
+Do your best!
 o 8 0
 o 2 2
 o 6 5
