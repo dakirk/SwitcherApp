@@ -75,7 +75,8 @@ public class GameWorld implements TileBasedMap {
 	 * @param objType character representing the type of object at the targeted position
 	 */
 	public void setView(int x, int y, char objType) {
-		viewMat[x][y] = objType;
+		if (objType != 'm') //doesn't include mines at all because nobody can see them
+			viewMat[x][y] = objType; //I know this is a hacky solution to the bug where smart and wary orcs step onto the same tile if it's a mine, but it's the best I can come up with right now
 	}
 
 	/**
@@ -113,7 +114,7 @@ public class GameWorld implements TileBasedMap {
 	public boolean blocked(Mover mover, int x, int y) {
 		//System.out.println("Moving object: " + mover);
 		if (((Orc)mover).getType() == 's') {
-			String impassableObjects = "Wobsn"; //smart orc obstacles
+			String impassableObjects = "Wobsne"; //smart orc obstacles
 			if (impassableObjects.indexOf(viewMat[x][y]) != -1) { //if object is impassible
 				//System.out.println("Blocked!");
 				return true;
@@ -122,7 +123,7 @@ public class GameWorld implements TileBasedMap {
 				return false;
 			}
 		} else if (((Orc)mover).getType() == 'n') {
-			String impassableObjects = "WobsnhB"; //wary orc obstacles
+			String impassableObjects = "WobsnherR"; //wary orc obstacles
 			if (impassableObjects.indexOf(viewMat[x][y]) != -1) { //if object is impassible
 				return true;
 			} else {
