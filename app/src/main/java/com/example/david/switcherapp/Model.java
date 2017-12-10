@@ -36,6 +36,8 @@ public class Model {
 	 * @param filename name of the level file to be loaded
 	 */
 	public Model(String filename, Context mContext) {
+
+		System.out.println("Constructing model...");
 		//eventually, will have it read a file to get object locations, but for now I'll hardcode them
 		size = 9;
 		world = new GameWorld();

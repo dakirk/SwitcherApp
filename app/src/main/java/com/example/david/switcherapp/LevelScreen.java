@@ -46,7 +46,7 @@ public class LevelScreen extends AppCompatActivity {
         view = findViewById(android.R.id.content);
         img = (ImageView) findViewById(R.id.gameOverMessage);
 
-        gameModel = new Model("Level6.txt",this);
+        //gameModel = new Model("Level6.txt",this);
         GameBegin();
 
       //  gameModel = new Model("Level1.txt", this);
@@ -255,26 +255,30 @@ public class LevelScreen extends AppCompatActivity {
             }
     }
 
-    public void Play(View view) {
+    public void Play(View v) {
+        System.out.println("Play function called");
         if(i==1||i==2) {
             gameModel.redraw();
+            System.out.println("Redraw complete");
             gameModel.update();
+            System.out.println("Update complete");
             gameModel.printBoard();
+            System.out.println("Board printed");
+
             i=1;
             if (gameModel.getGameState() != 0){ //&& !gameIsOver) { //game is won or lost -- use to print win or loss screen
                 System.out.println("Game over!");
+                gameIsOver = true;
 
                 if (gameModel.getGameState() == -1) {
                    // img = (ImageView) findViewById(R.id.gameOverMessage);
                     img.setImageResource(R.mipmap.death_message);
-                    gameIsOver = true;
                 }
                 if(gameModel.getGameState()== 1) {
                     //img = (ImageView) findViewById(R.id.gameOverMessage);
                     img.setImageResource(R.mipmap.win_message);
                     level = "Level"+Integer.toString(++levelcounter)+".txt";
                     //GameBegin();
-                    gameIsOver = true;
                    // win = true;
                 }
                 //gameIsOver=true;
@@ -285,6 +289,7 @@ public class LevelScreen extends AppCompatActivity {
             i = 1;
             //UPDATE CYCLE -- DO NOT RE-ARRANGE (might cause screwy behavior in-game)
             gameModel.redraw();
+            System.out.println("Redraw complete");
             gameModel.update();
             gameModel.printBoard();
             //end of update cycle
@@ -296,15 +301,15 @@ public class LevelScreen extends AppCompatActivity {
 
             if (gameModel.getGameState() != 0){ //&& !gameIsOver) { //game is won or lost -- use to print win or loss screen
                 System.out.println("Game over!");
+                gameIsOver = true;
                 if (gameModel.getGameState() == -1) {
                     img.setImageResource(R.mipmap.death_message);
-                    GameBegin();
+
                 }
                 if(gameModel.getGameState()== 1) {
                   //  img = (ImageView) findViewById(R.id.gameOverMessage);
                     img.setImageResource(R.mipmap.win_message);
                     level = "Level"+Integer.toString(++levelcounter)+".txt";
-                    GameBegin();
                 }
                 //gameIsOver=true;
             }
