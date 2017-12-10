@@ -1,4 +1,4 @@
-Brutes knock down walls. They will not kill other orcs though.
+Orcs will not kill other orcs to get to you.
 o 2 2
 o 5 0
 o 7 6
