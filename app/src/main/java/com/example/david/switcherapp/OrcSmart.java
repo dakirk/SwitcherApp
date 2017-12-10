@@ -75,7 +75,11 @@ public class OrcSmart extends Orc implements Mover {
 				updateLocation();
 				break;
 			case 'b': //attempt to move again
-				startMoving(destination);
+				PathFinder pathfinder = new AStarPathFinder(world, 500, false);
+				Path orcPath = pathfinder.findPath(this, (int)location.x, (int)location.y, (int)destination.x, (int)destination.y);
+
+				if (orcPath != null)
+					startMoving(destination);
 				break;
 			case 'd':
 				//System.out.println("Orc " + id + " is blocked!");
@@ -105,6 +109,7 @@ public class OrcSmart extends Orc implements Mover {
 				location.y = orcPath.getY(1); //use path provided by orcPath
 			} else {
 				state = 'b';
+				System.out.println("Orc" + displayCode + "is blocked!");
 			}
 		}
 	}

@@ -231,8 +231,10 @@ public class LevelScreen extends AppCompatActivity {
     }
 
     public void Play(View view) {
-        bStart.setColorFilter(Color.argb(0, 0, 0, 0));
-        bEnd.setColorFilter(Color.argb(0, 0, 0, 0));
+        if (bStart != null)
+            bStart.setColorFilter(Color.argb(0, 0, 0, 0));
+        if (bEnd != null)
+            bEnd.setColorFilter(Color.argb(0, 0, 0, 0));
 
         if(i==1||i==2) {
             gameModel.redraw();
