@@ -212,6 +212,8 @@ public class Model {
 			returnVal = true;
 		} else { //if game still running
 
+			int orcTally = 0; //must be at least one orc to win
+
 			for (GameObject obj : objList) { //update every object in list
 				redraw();
 				boolean eventHappened = obj.update();
@@ -224,16 +226,14 @@ public class Model {
 					gameState = -1;
 					returnVal = true;
 				}
-			}
 
-			int orcTally = 0; //must be at least one orc to win
-			for (Orc enemy : orcList) { //tally dead and blocked orcs, see if game over
-				//System.out.println("Orc: " + enemy);
-				//System.out.println("State: " + enemy.getState());
-				if (enemy.getState() == 'b' || enemy.getState() == 'd') { //if all orcs dead, game won
-					orcTally++;
+				if (obj.isOrc()) {
+					if (obj.getState() == 'b' || obj.getState() == 'd') { //if all orcs dead, game won
+						orcTally++;
+					}
 				}
 			}
+
 			if (orcList.size() > 0 && orcTally == orcList.size()) {
 				gameState = 1;
 				returnVal = true;
