@@ -26,4 +26,5 @@
     <string name="Lose">Orcs eat you.</string>
     <string name="widget_to_show_win_or_loss_message">widget to show win or loss message</string>
     <string name="Level_Select_Message"> Please select a level</string>
+    <string name="end">That\'s the end. \nThanks for playing!</string>
 </resources>

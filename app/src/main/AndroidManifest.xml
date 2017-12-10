@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".LevelScreen" />
-        <activity android:name=".IntroSlides"></activity>
+        <activity android:name=".IntroSlides" />
+        <activity android:name=".EndGame"></activity>
     </application>
 
 </manifest>
