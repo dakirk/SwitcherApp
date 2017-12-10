@@ -1,3 +1,7 @@
+//TODO: color-code orcs: normal, red; brute, brown; smart, purple; wary, blue
+//TODO: add a few more levels: one that demonstrates mines and the ways smart and wary orcs interact with them over bombs, one that acts as a tutorial for bombs, one that acts as a tutorial for holes, and one more with a unique puzzle
+//TODO: re-order levels to flow better/teach player
+
 package com.example.david.switcherapp;//NOTE: for smart Orc variants, try to implement this algorithm: http://gregtrowbridge.com/a-basic-pathfinding-algorithm/
 
 import com.example.david.switcherapp.AStarPathFinding.Mover;
