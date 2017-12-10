@@ -2,6 +2,7 @@ package com.example.david.switcherapp;
 
   import android.content.Context;
   import android.content.Intent;
+  import android.content.pm.ActivityInfo;
   import android.graphics.Color;
   import android.os.Build;
   import android.os.Bundle;
@@ -39,6 +40,8 @@ public class IntroSlides extends AppCompatActivity {
         //}
 
         setContentView(R.layout.activity_intro_slides);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);

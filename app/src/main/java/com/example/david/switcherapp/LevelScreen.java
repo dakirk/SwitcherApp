@@ -2,6 +2,7 @@ package com.example.david.switcherapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
@@ -45,6 +46,8 @@ public class LevelScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         levelcounter = 1;
         setContentView(R.layout.activity_level_screen);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         view = findViewById(android.R.id.content);
         img = (ImageView) findViewById(R.id.gameOverMessage);
 
