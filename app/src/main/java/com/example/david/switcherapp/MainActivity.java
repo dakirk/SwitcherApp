@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     public void sendMessage(View view)
     {
         Intent intent = new Intent(this, IntroSlides.class);
+        LevelScreen.level = "Level1.txt";
         startActivity(intent);
 
     }

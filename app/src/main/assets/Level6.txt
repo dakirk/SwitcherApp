@@ -1,4 +1,4 @@
-A bomb kills all orcs in a radius of 2.
+A large red bomb kills all orcs in the tiles around it.
 o 1 2
 o 8 7
 o 2 4

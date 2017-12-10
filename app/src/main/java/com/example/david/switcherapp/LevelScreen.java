@@ -34,7 +34,7 @@ public class LevelScreen extends AppCompatActivity {
     CartPoint bEndPoint;
     // private boolean win = false;
     //private boolean lose = false;
-    static String level="Level1.txt";
+    public static String level="Level1.txt";
     private int levelcounter;
     ImageView img;
 
