@@ -31,10 +31,10 @@
     <string name="top">Types of Orcs</string>
     <string name="dumb">Dumb Orc\nGets stuck by walls.</string>
     <string name="smart">Smart Orc\nWill find a way\naround walls.</string>
-    <string name="wary">Wary Orc\nWill not go over\n uncovered holes,mines\n and bombs.</string>
+    <string name="wary">Wary Orc\nWill not go over\nuncovered holes,mines\nand bombs.</string>
     <string name="brute">Brute Orc\nWill smash its way\nthrough walls.</string>
     <string name="tut6">Objects</string>
-    <string name="Mine">Small bomb:\nBlows up orcs\non the square.</string>
+    <string name="Mine">Small bomb:\nBlows up orcs\non its tile.</string>
     <string name="Bomb">Large bomb:\nBlows up orcs\nin surrounding tiles.</string>
     <string name="Hole">Hole:\nOrcs fall in and die.</string>
     <string name="CoveredHole">Covered Hole:\nSmart and Wary orcs\ncannot see a covered hole.\nBecomes uncovered\nonce discovered.</string>
