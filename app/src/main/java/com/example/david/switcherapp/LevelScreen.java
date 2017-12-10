@@ -46,6 +46,7 @@ public class LevelScreen extends AppCompatActivity {
         view = findViewById(android.R.id.content);
         img = (ImageView) findViewById(R.id.gameOverMessage);
 
+        gameModel = new Model("Level6.txt",this);
         GameBegin();
 
       //  gameModel = new Model("Level1.txt", this);
@@ -223,6 +224,12 @@ public class LevelScreen extends AppCompatActivity {
                         break;
                     case 'm':
                         b.setImageResource(R.mipmap.mine);
+                        break;
+                    case 'r':
+                        b.setImageResource(R.mipmap.bomb_small);
+                        break;
+                    case 'R':
+                        b.setImageResource(R.mipmap.bomb_large);
                         break;
                     case 'e':
                         b.setImageResource(R.mipmap.explosion);
