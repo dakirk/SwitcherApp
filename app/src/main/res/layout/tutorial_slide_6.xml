@@ -62,13 +62,13 @@
         android:layout_marginEnd="24dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/luminari"
         android:text="@string/Mine"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -112,7 +112,7 @@
         app:layout_constraintHorizontal_bias="0.815"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@mipmap/mine"
+        app:srcCompat="@mipmap/bomb_small"
         android:contentDescription=""/>
 
     <android.support.constraint.Guideline
@@ -137,7 +137,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
@@ -151,13 +151,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:contentDescription=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintHorizontal_bias="0.66"
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.156"
-        app:srcCompat="@drawable/orc_wary"
-        android:contentDescription=""/>
+        app:layout_constraintVertical_bias="0.821"
+        app:srcCompat="@mipmap/bomb_large" />
 
 </android.support.constraint.ConstraintLayout>
