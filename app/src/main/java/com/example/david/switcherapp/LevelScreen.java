@@ -35,7 +35,7 @@ public class LevelScreen extends AppCompatActivity {
     // private boolean win = false;
     //private boolean lose = false;
     static String level="Level1.txt";
-    private int levelcounter = 1;
+    private int levelcounter;
     ImageView img;
 
     int i = 1;
@@ -43,6 +43,7 @@ public class LevelScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        levelcounter = 1;
         setContentView(R.layout.activity_level_screen);
         view = findViewById(android.R.id.content);
         img = (ImageView) findViewById(R.id.gameOverMessage);
@@ -110,7 +111,7 @@ public class LevelScreen extends AppCompatActivity {
         GameObject selectedObj = gameModel.getGameObject(bStartPoint);
         if (selectedObj != null) {
             char bStartPointObjType = selectedObj.getType();
-            if (bStartPointObjType != 'W' && Character.toUpperCase(bStartPointObjType) != 'H') { //if not wall or hole
+            if (bStartPointObjType != 'W' && bStartPointObjType != 'P' && Character.toUpperCase(bStartPointObjType) != 'H') { //if not wall or hole
                 bStart.setColorFilter(Color.argb(127, 255, 255, 255)); //tint button if swappable
                 //in the future we could put more stuff here--determine whether to select or not based on type!
                 i=2;
@@ -141,7 +142,7 @@ public class LevelScreen extends AppCompatActivity {
         GameObject selectedObj = gameModel.getGameObject(bEndPoint);
         if (selectedObj != null) {
             char bEndPointObjType = selectedObj.getType();
-            if (bEndPointObjType != 'W' && Character.toUpperCase(bEndPointObjType) != 'H') { //if not wall or hole
+            if (bEndPointObjType != 'W' && bEndPointObjType != 'P' && Character.toUpperCase(bEndPointObjType) != 'H') { //if not wall or hole
                 bEnd.setColorFilter(Color.argb(127, 255, 255, 255)); //tint button if swappable
                 //in the future we could put more stuff here--determine whether to select or not based on type!
                 i = 3;
