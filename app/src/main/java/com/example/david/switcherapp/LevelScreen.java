@@ -88,6 +88,15 @@ public class LevelScreen extends AppCompatActivity {
             GameBegin();
         } else {
 
+            if(i==3) {
+                gameModel.printBoard();
+                bStart.setColorFilter(Color.argb(0, 0, 0, 0));
+                bEnd.setColorFilter(Color.argb(0, 0, 0, 0));
+
+                bStart = null;
+                bEnd = null;
+                i = 1;
+            }
             if(i==1) {
                 ButtonFrom(v);
                 System.out.println("Button From selected");
@@ -121,7 +130,7 @@ public class LevelScreen extends AppCompatActivity {
                 i=1; //reject selection and repeat on next tap
             }
         } else {
-            bStart.setImageResource(R.mipmap.highlight);
+            bStart.setColorFilter(Color.argb(127, 255, 255, 255)); //tint button if swappable
             i=2; //if selection null selection still valid
         }
 
@@ -150,7 +159,7 @@ public class LevelScreen extends AppCompatActivity {
                 i = 2; //reject selection and repeat on next tap
             }
         } else {
-            bEnd.setImageResource(R.mipmap.highlight);
+            bEnd.setColorFilter(Color.argb(127, 255, 255, 255)); //tint button if swappable
             i = 3; //if selection null selection is still valid
         }
 
@@ -207,7 +216,8 @@ public class LevelScreen extends AppCompatActivity {
                         b.setImageResource(R.drawable.wizard);
                         break;
                     case 'g':
-                        b.setImageResource(android.R.color.transparent);
+                        //b.setImageResource(android.R.color.transparent);
+                        b.setImageResource(R.mipmap.grass_fill);
                         break;
                     default:
                         System.out.println("Button not found.");
