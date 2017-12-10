@@ -213,7 +213,6 @@ public class Model {
 		} else { //if game still running
 
 			for (GameObject obj : objList) { //update every object in list
-				clear();
 				redraw();
 				boolean eventHappened = obj.update();
 

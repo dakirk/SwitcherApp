@@ -291,7 +291,9 @@ public class LevelScreen extends AppCompatActivity {
             gameModel.redraw();
             System.out.println("Redraw complete");
             gameModel.update();
+            System.out.println("Update complete");
             gameModel.printBoard();
+            System.out.println("Board printed");
             //end of update cycle
 
             System.out.println(gameModel.getGameState());
