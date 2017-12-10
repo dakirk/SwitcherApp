@@ -38,4 +38,13 @@
     <string name="Bomb">Bomb:\nBlows up orcs\nin radius 2.</string>
     <string name="Hole">Hole:\nOrcs fall in and die.</string>
     <string name="CoveredHole">Covered Hole:\nSmart and Wary orcs\ncannot see a covered hole.\nBecomes uncovered\nonce discovered.</string>
+    <string name="level_15">1</string>
+    <string name="level_2">2</string>
+    <string name="level_3">3</string>
+    <string name="level_4">4</string>
+    <string name="level_5">5</string>
+    <string name="level_6">6</string>
+    <string name="level_7">7</string>
+    <string name="level_8">8</string>
+
 </resources>

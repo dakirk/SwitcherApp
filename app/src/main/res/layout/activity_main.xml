@@ -39,7 +39,7 @@
         android:layout_marginStart="8dp"
         android:background="@mipmap/level_select"
         android:contentDescription="@string/Button"
-        android:onClick="levelSelect"
+        android:onClick="Selection"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.18"

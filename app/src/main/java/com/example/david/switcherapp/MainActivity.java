@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void levelSelect(View view)
+    public void Selection(View view)
     {
-        Intent intentlevel = new Intent(this, LevelSelect.class);
+        Intent intentlevel = new Intent(this, level_select.class);
         startActivity(intentlevel);
     }
 }

@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".LevelScreen" />
         <activity android:name=".IntroSlides" />
-        <activity android:name=".EndGame"></activity>
+        <activity android:name=".EndGame" />
+        <activity android:name=".level_select"></activity>
     </application>
 
 </manifest>
