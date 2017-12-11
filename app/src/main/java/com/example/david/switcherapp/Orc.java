@@ -16,7 +16,7 @@ import com.example.david.switcherapp.AStarPathFinding.Mover;
  */
 public class Orc extends GameObject implements Mover {
 
-	protected double speed; // <-- might not use this
+	protected double speed; //used for calculating delta only, for consistency with the behavior of PA3
 	protected CartPoint destination;
 	protected CartPoint delta;
 	protected Model orcVision;
@@ -72,14 +72,7 @@ public class Orc extends GameObject implements Mover {
 					break;
 
 				} else { //if not arrived yet
-					/*
-					delta = calcDelta(); //refreshes delta
 
-					if (Math.abs(delta.x) > Math.abs(delta.y)) { //predicts next move
-						obstacle = getObjAtPos(location.x + (delta.x / Math.abs(delta.x)), location.y);
-					} else {
-						obstacle = getObjAtPos(location.x, location.y + (delta.y / Math.abs(delta.y)));
-					}*/
 					obstacle = getNextObj();
 
 				}
@@ -164,7 +157,7 @@ public class Orc extends GameObject implements Mover {
 	public void die() {
 		System.out.println("Orc " + id + " has died");
 		state = 'd'; //change state to "dead"
-		location.x = -1; //teleport to (-1, -1)
+		location.x = -1; //teleport to (-1, -1), where all dead things go
 		location.y = -1;
 	}
 

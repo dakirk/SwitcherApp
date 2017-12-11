@@ -17,8 +17,6 @@ import com.example.david.switcherapp.AStarPathFinding.PathFinder;
 public class OrcSmart extends Orc implements Mover {
 
 	private GameWorld world;
-	//private Path orcPath;
-	//private AStarPathFinder pathfinder;
 	protected int pathLength;
 	protected int stepCounter = 1;
 
@@ -75,10 +73,12 @@ public class OrcSmart extends Orc implements Mover {
 				updateLocation();
 				break;
 			case 'b': //attempt to move again
+
+				//get a new path to see if it's blocked or not
 				PathFinder pathfinder = new AStarPathFinder(world, 500, false);
 				Path orcPath = pathfinder.findPath(this, (int)location.x, (int)location.y, (int)destination.x, (int)destination.y);
 
-				if (orcPath != null)
+				if (orcPath != null) //if path not blocked, then move--this fixes an issue that prevented all smart orcs from being blocked at the same time
 					startMoving(destination);
 				break;
 			case 'd':
@@ -101,13 +101,14 @@ public class OrcSmart extends Orc implements Mover {
 		if (location.equals(destination)) {
 			System.out.println("Arrived at target");
 		} else {
+			//get a new path
 			PathFinder pathfinder = new AStarPathFinder(world, 500, false);
 			Path orcPath = pathfinder.findPath(this, (int)location.x, (int)location.y, (int)destination.x, (int)destination.y);
 
-			if (orcPath != null) {
+			if (orcPath != null) { //if path formed correctly
 				location.x = orcPath.getX(1); //use path provided by orcPath
 				location.y = orcPath.getY(1); //use path provided by orcPath
-			} else {
+			} else { //no valid path, so must be blocked
 				state = 'b';
 				System.out.println("Orc" + displayCode + "is blocked!");
 			}

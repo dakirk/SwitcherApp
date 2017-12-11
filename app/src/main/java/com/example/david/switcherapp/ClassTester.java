@@ -1,7 +1,8 @@
-/*package com.example.david.switcherapp;//TO DO:
-//1. Add a "load" function to Model, which allows it to read a text document and spawn orcs, walls, and wizards (in that order)
-//2. Test swap mechanic a bit more
-//3. In lieu of a user interface, make a text-based one, similar to PA3?
+//This was the program I (David Kirk) used to test the backend before the frontend was ready for
+//integration. It was at one point capable of running independently of Android, though Model has
+//since been modified to work with Android Studio, eliminating independent functionality.
+
+/*package com.example.david.switcherapp;
 
 import java.io.IOException;
 

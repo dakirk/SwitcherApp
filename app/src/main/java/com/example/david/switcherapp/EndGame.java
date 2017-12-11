@@ -4,6 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+/**
+ * This is the slide that appears when all levels are completed.
+ *
+ * @author Srinidhi Venkatesan Kalavai
+ */
 public class EndGame extends AppCompatActivity {
 
     @Override
@@ -12,6 +17,9 @@ public class EndGame extends AppCompatActivity {
         setContentView(R.layout.activity_end_game);
     }
 
+    /**
+     * Quit game when the back button is pressed
+     */
     @Override
     public void onBackPressed(){
         /*

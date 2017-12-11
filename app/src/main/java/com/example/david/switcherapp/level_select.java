@@ -6,7 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-
+/**
+ * This frame allows the user to select a level, instead of playing through them all in order
+ * @author Jillian Yong
+ */
 public class level_select extends AppCompatActivity {
 
     @Override
@@ -17,6 +20,10 @@ public class level_select extends AppCompatActivity {
 
     }
 
+    /**
+     * Determines which level to load
+     * @param view the View object used in this frame
+     */
     public void Selection(View view)
     {
         switch(view.getId()) {

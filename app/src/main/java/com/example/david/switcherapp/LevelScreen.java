@@ -22,7 +22,10 @@ import android.widget.ImageView;
 
 import java.io.IOException;
 
-
+/**
+ * This is the backend for the level screen, in which most of the game is played. It controls tile
+ * rendering, tile swapping, turn control, and win/loss behavior.
+ */
 public class LevelScreen extends AppCompatActivity {
 
     public ImageButton bStart;
@@ -51,13 +54,15 @@ public class LevelScreen extends AppCompatActivity {
         view = findViewById(android.R.id.content);
         img = (ImageView) findViewById(R.id.gameOverMessage);
 
-        //gameModel = new Model("Level6.txt",this);
         GameBegin();
         System.out.println();
 
-
-
     }
+
+    /**
+     * Function that runs when each level starts. It determines whether to load a level or move on
+     * to the end slide, and if there is a level to load, it initializes it.
+     */
     public void GameBegin()
     {
         img.setImageResource(0);
@@ -83,6 +88,11 @@ public class LevelScreen extends AppCompatActivity {
 
     }
 
+    /**
+     * Function called when a button is selected in the grid. It first checks for a game over, and
+     * then determines what to do for tile selection.
+     * @param v the View object used in this frame (?)
+     */
     public void onClick(View v)
     {
         if (gameIsOver) { //activities to do when user has seen that game is over
@@ -109,8 +119,13 @@ public class LevelScreen extends AppCompatActivity {
                 System.out.println("Button To selected");
             }
         }
-
     }
+
+    /**
+     * Determines how to handle a button press on the grid when nothing is yet selected. If the
+     * selection is valid, it highlights and stores the button, and if not, it does nothing.
+     * @param view the View object used in this frame
+     */
     public void ButtonFrom(View view)
     {
         bStart = findViewById(view.getId());
@@ -142,6 +157,11 @@ public class LevelScreen extends AppCompatActivity {
 
     }
 
+    /**
+     * Determines how to handle a button press after something has already been selected. Otherwise,
+     * it behaves the same as ButtonFrom.
+     * @param v the View object used in this frame
+     */
     public void ButtonTo(View v) {
         System.out.println("In Button To");
         bEnd = findViewById(v.getId());
@@ -169,12 +189,22 @@ public class LevelScreen extends AppCompatActivity {
         //System.out.println(bEndPoint);
     }
 
+    /**
+     * Calls Wizard's magicSwap function on the two selected locations
+     */
     public void Swap() {
 
         Wizard.magicSwap(bStartPoint, bEndPoint);
 
     }
 
+    /**
+     * Initializes a single button in the grid with the correct sprite
+     * @param sprite the character representing the object type in that location and the sprite to
+     *               be used to represent it
+     * @param i the horizontal coordinate of the grid square
+     * @param j the vertical coordinate of the grid square
+     */
     public static void InitializeButton(char sprite, double i, double j) {
         if(i!=-1&&j!=-1) {
             String str = "";
@@ -233,12 +263,18 @@ public class LevelScreen extends AppCompatActivity {
             }
     }
 
+    /**
+     * Function to execute one turn of the game, in which tiles are swapped, orcs move, and traps
+     * trigger. It also deselects tiles if necessary to reset for the next turn.
+     * @param view the View object used in this frame
+     */
     public void Play(View view) {
-        if (bStart != null)
+        if (bStart != null) //clear tile selection
             bStart.setColorFilter(Color.argb(0, 0, 0, 0));
-        if (bEnd != null)
+        if (bEnd != null) //clear tile selection
             bEnd.setColorFilter(Color.argb(0, 0, 0, 0));
 
+        //if selection incomplete, nothing to swap
         if(i==1||i==2) {
             gameModel.redraw();
             gameModel.update();
@@ -261,7 +297,7 @@ public class LevelScreen extends AppCompatActivity {
                 }
             }
         }
-        else{
+        else{ //if selection complete, same as above, but with a swap
             Swap();
             i = 1;
             //UPDATE CYCLE -- DO NOT RE-ARRANGE (might cause screwy behavior in-game)

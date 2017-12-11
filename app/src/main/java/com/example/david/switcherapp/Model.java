@@ -249,7 +249,7 @@ public class Model {
 	}
 
 	/**
-	 * Wipes the viewArray clean
+	 * Wipes the viewArray clean and fills the grid onscreen with blank spaces
 	 */
 	public void clear() {
 		for (int i = 0; i < size; i++) {
@@ -286,8 +286,6 @@ public class Model {
 		return null;
 	}
 
-	//searches for an Orc by location
-
 	/**
 	 * Searches the orcList for an orc at a given location. Useful when there are multiple objects
 	 * on the same location, as it allows the user to pick the Orc every time.
@@ -303,6 +301,12 @@ public class Model {
 		return null;
 	}
 
+	/**
+	 * Getter for all objects within a radius, as used by the bomb object
+	 * @param location the center point of the circle
+	 * @param radius the circle's radius
+	 * @return an ArrayList of all objects within the radius
+	 */
 	public ArrayList<GameObject> getObjectsInRadius(CartPoint location, double radius) {
 		ArrayList<GameObject> returnList = new ArrayList<GameObject>();
 		for (GameObject obj : objList) {
@@ -330,7 +334,7 @@ public class Model {
 	//for the sake of simplicity, the wizard must always be at the end of the list
 
 	/**
-	 * Adds a new GameObject to the list. Used by the loadLevel method. Wizard must always be at the
+	 * Adds a new GameObject to the list. Currently unused. Wizard must always be at the
 	 * end of the list, or else things could behave unexpectedly.
 	 * @param object
 	 */
@@ -342,6 +346,7 @@ public class Model {
 
 	/**
 	 * Prints the status of all GameObjects directly to the console, using their toString methods.
+	 * Was originally used for testing purposes, now unused.
 	 */
 	public void printAll() {
 		System.out.println("...");
@@ -366,13 +371,7 @@ public class Model {
 	 * Prints all GameObjects to the button grid onscreen
 	 */
 	public void printBoard() {
-		/*int i;
-		for (i = 0; i < size; i++) {
-			for (int j = 0; j < size; j++) {
-				System.out.print(" " + viewArray[i][j]);
-			}
-			System.out.println();
-		}*/
+
 		for(GameObject obj:objList)
 		{
 			char type = obj.getType();

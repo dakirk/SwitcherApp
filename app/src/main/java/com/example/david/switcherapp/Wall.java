@@ -31,7 +31,7 @@ public class Wall extends GameObject {
 	/**
 	 * Sets wall's state to destroyed. Used by OrcBrute.
 	 */
-	public void smash() { //will be called by OrcBrute to smash down wall
+	public void smash() {
 		state = 'd';
 		displayCode = 'w';
 		location.x = -1;
