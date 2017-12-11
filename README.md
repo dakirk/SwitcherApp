@@ -15,4 +15,6 @@ Program Code Source
 Link: https://github.com/dakirk/SwitcherApp
 
 Copyright 2017 ISmiteYou. All rights reserved. I Smite You! and its use are subject to a license agreement and are also suject to copyright, trademark, patent and/or other laws. All other brand and product names are trademarks or registered.
+
+
 By Christina Fontana, Srinidhi Venkatesan Kalavai, David Kirk, Jillian Yong
