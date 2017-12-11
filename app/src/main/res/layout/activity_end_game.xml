@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00695C"
-    tools:context="com.example.david.switcherapp.EndGame">
+    tools:context="com.example.david.switcherApp.EndGame">
 
     <TextView
         android:id="@+id/textView14"
